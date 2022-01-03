@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     /* manrope-regular - latin */
-    font-family: "Manrope", sans-serif;
+    font-family: "Manrope ExtraLight", sans-serif;
     font-size: 15px;
     @font-face {
       font-family: 'Manrope';
@@ -15,7 +15,11 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 400;
       src: url('../assets/fonts/manrope-v8-latin-regular.eot'); /* IE9 Compat Modes */
       src: local(''),
-      url('../assets/fonts/manrope-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../assets/fonts/manrope-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../assets/fonts/manrope-v8-latin-regular.woff') format('woff'), /* Modern Browsers */ url('../assets/fonts/manrope-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../assets/fonts/manrope-v8-latin-regular.svg#Manrope') format('svg'); /* Legacy iOS */
+      url('../assets/fonts/manrope-v8-latin-regular.eot?#iefix') format('embedded-opentype') /* IE6-IE8 */,
+      url('../assets/fonts/manrope-v8-latin-regular.woff2') format('woff2') /* Super Modern Browsers */,
+      url('../assets/fonts/manrope-v8-latin-regular.woff') format('woff') /* Modern Browsers */,
+      url('../assets/fonts/manrope-v8-latin-regular.ttf') format('truetype') /* Safari, Android, iOS */,
+      url('../assets/fonts/manrope-v8-latin-regular.svg#Manrope') format('svg'); /* Legacy iOS */
     }
   }
 `;
