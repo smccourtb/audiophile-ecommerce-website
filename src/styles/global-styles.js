@@ -27,17 +27,19 @@ export const GlobalStyle = createGlobalStyle`
 export const Button = styled.button`
   width: 160px;
   height: 48px;
-  background-color: #d87d4a;
-  color: #ffffff;
+  background-color: ${({ primary }) => (primary ? "#d87d4a" : "transparent")};
+  color: ${({ primary }) => (primary ? "#ffffff" : "#000000")};
   font-size: 13px;
   line-height: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 700;
   border: none;
-  transition: background-color 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  border: ${({ primary }) => (primary ? "none" : "1px solid #000000")};
 
   :hover {
-    background-color: #fbaf85;
+    background-color: ${({ primary }) => (primary ? "#fbaf85" : "#000000")};
+    color: #ffffff;
   }
 `;
