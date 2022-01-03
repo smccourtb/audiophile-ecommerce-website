@@ -10,7 +10,10 @@ const Container = styled.div`
 const App = () => (
   <>
     <GlobalStyle />
-    <Container />
+    <Container>
+      <p style={{ fontWeight: "700" }}>Hello World</p>
+      <p>Hello World</p>
+    </Container>
   </>
 );
 
