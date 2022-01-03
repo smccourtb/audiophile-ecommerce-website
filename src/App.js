@@ -1,5 +1,8 @@
 import styled from "styled-components/macro";
 import { GlobalStyle } from "./styles/global-styles";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
 
 const Container = styled.div`
   height: 100px;
@@ -11,8 +14,9 @@ const App = () => (
   <>
     <GlobalStyle />
     <Container>
-      <p style={{ fontWeight: "700" }}>Hello World</p>
-      <p>Hello World</p>
+      <Header />
+      <Content />
+      <Footer />
     </Container>
   </>
 );
