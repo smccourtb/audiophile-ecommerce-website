@@ -3,6 +3,7 @@ import Logo from "../assets/shared/desktop/logo.svg";
 import ShoppingCart from "../assets/shared/desktop/icon-cart.svg";
 import styled from "styled-components/macro";
 import { useMediaQuery } from "react-responsive";
+import Navigation from "./Navigation";
 
 const HeaderContainer = styled.header`
   height: 90px;
@@ -48,25 +49,6 @@ const HeaderImg = styled.img`
   }
 `;
 
-const NavBar = styled.nav`
-  display: flex;
-  gap: 34px;
-`;
-
-const Link = styled.a`
-  line-height: 25px;
-  text-decoration: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-
-  :hover {
-    color: #d87d4a;
-  }
-`;
-
 const Header = () => {
   const isLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
   return (
@@ -74,12 +56,7 @@ const Header = () => {
       {isLaptop ? (
         <ImgContainer>
           <img src={Logo} alt="logo" />
-          <NavBar>
-            <Link href={"#"}>Home</Link>
-            <Link href={"#"}>Headphones</Link>
-            <Link href={"#"}>Speakers</Link>
-            <Link href={"#"}>Earphones</Link>
-          </NavBar>
+          <Navigation />
           <HeaderImg cart={"true"} src={ShoppingCart} alt="shopping-cart" />
         </ImgContainer>
       ) : (
