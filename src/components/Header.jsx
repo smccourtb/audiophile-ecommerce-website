@@ -12,6 +12,10 @@ const HeaderContainer = styled.header`
   padding: 32px 24px 33px;
   display: flex;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 32px 40px 33px;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -19,15 +23,26 @@ const ImgContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
+
+const HeaderImg = styled.img`
+  @media (min-width: 768px) {
+    margin-right: ${({ menu }) => menu && "42px"};
+    margin-left: ${({ cart }) => cart && "auto"};
+  }
 `;
 
 const Header = () => {
   return (
     <HeaderContainer>
       <ImgContainer>
-        <img style={{ height: "60%" }} src={Hamburger} alt="menu" />
+        <HeaderImg menu style={{ height: "60%" }} src={Hamburger} alt="menu" />
         <img src={Logo} alt="logo" />
-        <img src={ShoppingCart} alt="shopping-cart" />
+        <HeaderImg cart src={ShoppingCart} alt="shopping-cart" />
       </ImgContainer>
     </HeaderContainer>
   );
