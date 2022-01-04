@@ -1,5 +1,5 @@
 const Speakers = () => {
-  return <main />;
+  return <main>Speaker Page</main>;
 };
 
 export default Speakers;
