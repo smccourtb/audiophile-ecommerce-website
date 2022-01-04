@@ -1,21 +1,30 @@
-import { FooterNav, Link, NavBar } from "../styles/shared-styles";
+import { FooterNav, NavBar, StyledLink } from "../styles/shared-styles";
+import { Link } from "react-router-dom";
 
 const Navigation = ({ footer }) => {
   return (
     <>
       {footer ? (
         <FooterNav>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Headphones</Link>
-          <Link href={"#"}>Speakers</Link>
-          <Link href={"#"}>Earphones</Link>
+          <StyledLink href={"#"}>Home</StyledLink>
+          <StyledLink href={"#"}>Headphones</StyledLink>
+          <StyledLink href={"#"}>Speakers</StyledLink>
+          <StyledLink href={"#"}>Earphones</StyledLink>
         </FooterNav>
       ) : (
         <NavBar>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Headphones</Link>
-          <Link href={"#"}>Speakers</Link>
-          <Link href={"#"}>Earphones</Link>
+          <Link to={"/"}>
+            <StyledLink>Home</StyledLink>
+          </Link>
+          <Link to={"/headphones"}>
+            <StyledLink>Headphones</StyledLink>
+          </Link>
+          <Link to={"/speakers"}>
+            <StyledLink>Speakers</StyledLink>
+          </Link>
+          <Link to={"/earphones"}>
+            <StyledLink>Earphones</StyledLink>
+          </Link>
         </NavBar>
       )}
     </>

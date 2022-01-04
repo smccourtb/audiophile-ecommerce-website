@@ -37,14 +37,9 @@ export const FooterNav = styled(NavBar)`
   @media (min-width: 1024px) {
     padding-top: 75px;
   }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 34px;
-  }
 `;
 
-export const Link = styled.a`
+export const StyledLink = styled.a`
   line-height: 25px;
   text-decoration: none;
   letter-spacing: 2px;
@@ -53,7 +48,17 @@ export const Link = styled.a`
   font-weight: 700;
   color: #ffffff;
 
-  :hover {
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
     color: #d87d4a;
   }
+`;
+
+export const ContentContainer = styled.main`
+  display: flex;
+  overflow: auto;
+  min-height: 1000px;
 `;

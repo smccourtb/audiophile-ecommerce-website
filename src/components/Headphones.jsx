@@ -1,5 +1,5 @@
 const Headphones = () => {
-  return <main />;
+  return <main>Headphone Page</main>;
 };
 
 export default Headphones;
