@@ -38,6 +38,7 @@ const ImgContainer = styled.div`
 `;
 
 const HeaderImg = styled.img`
+  cursor: pointer;
   @media (min-width: 768px) {
     margin-right: ${({ menu }) => menu && "42px"};
     margin-left: ${({ cart }) => cart && "auto"};
@@ -52,6 +53,20 @@ const NavBar = styled.nav`
   gap: 34px;
 `;
 
+const Link = styled.a`
+  line-height: 25px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+
+  :hover {
+    color: #d87d4a;
+  }
+`;
+
 const Header = () => {
   const isLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
   return (
@@ -60,10 +75,10 @@ const Header = () => {
         <ImgContainer>
           <img src={Logo} alt="logo" />
           <NavBar>
-            <a href={"#"}>Home</a>
-            <a href={"#"}>Headphones</a>
-            <a href={"#"}>Speakers</a>
-            <a href={"#"}>Earphones</a>
+            <Link href={"#"}>Home</Link>
+            <Link href={"#"}>Headphones</Link>
+            <Link href={"#"}>Speakers</Link>
+            <Link href={"#"}>Earphones</Link>
           </NavBar>
           <HeaderImg cart={"true"} src={ShoppingCart} alt="shopping-cart" />
         </ImgContainer>
