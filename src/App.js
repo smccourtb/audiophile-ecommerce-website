@@ -1,23 +1,27 @@
-import styled from "styled-components/macro";
 import { GlobalStyle } from "./styles/global-styles";
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
 
-const Container = styled.div`
-  height: 100px;
-  width: 200px;
-  background-color: blue;
-`;
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// main pages of content
+import Home from "./components/Home";
+import Headphones from "./components/Headphones";
+import Speakers from "./components/Speakers";
+import Earphones from "./components/Earphones";
+import Checkout from "./components/Checkout";
 
 const App = () => (
   <>
     <GlobalStyle />
-    <Container>
-      <Header />
-      <Content />
-      <Footer />
-    </Container>
+    <Header />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/headphones" element={<Headphones />} />
+      <Route path="/speakers" element={<Speakers />} />
+      <Route path="/earphones" element={<Earphones />} />
+      <Route path="/checkout" element={<Checkout />} />
+    </Routes>
+    <Footer />
   </>
 );
 

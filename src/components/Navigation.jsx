@@ -1,21 +1,21 @@
-import { FooterNav, Link, NavBar } from "../styles/shared-styles";
+import { FooterNav, NavBar, StyledLink } from "../styles/shared-styles";
 
 const Navigation = ({ footer }) => {
   return (
     <>
       {footer ? (
         <FooterNav>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Headphones</Link>
-          <Link href={"#"}>Speakers</Link>
-          <Link href={"#"}>Earphones</Link>
+          <StyledLink to={"/"}>Home</StyledLink>
+          <StyledLink to={"/headphones"}>Headphones</StyledLink>
+          <StyledLink to={"/speakers"}>Speakers</StyledLink>
+          <StyledLink to={"/earphones"}>Earphones</StyledLink>
         </FooterNav>
       ) : (
         <NavBar>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Headphones</Link>
-          <Link href={"#"}>Speakers</Link>
-          <Link href={"#"}>Earphones</Link>
+          <StyledLink to={"/"}>Home</StyledLink>
+          <StyledLink to={"/headphones"}>Headphones</StyledLink>
+          <StyledLink to={"/speakers"}>Speakers</StyledLink>
+          <StyledLink to={"/earphones"}>Earphones</StyledLink>
         </NavBar>
       )}
     </>

@@ -9,8 +9,6 @@ import { useMediaQuery } from "react-responsive";
 const FooterContainer = styled.footer`
   background: linear-gradient(#d87d4a, #d87d4a) top / 104px 4px no-repeat,
     #000000;
-  position: fixed;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

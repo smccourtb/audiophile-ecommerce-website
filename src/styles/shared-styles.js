@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 export const Button = styled.button`
   width: 160px;
@@ -37,14 +38,15 @@ export const FooterNav = styled(NavBar)`
   @media (min-width: 1024px) {
     padding-top: 75px;
   }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 34px;
-  }
 `;
 
-export const Link = styled.a`
+export const ContentContainer = styled.main`
+  display: flex;
+  overflow: auto;
+  min-height: 1000px;
+`;
+
+export const StyledLink = styled(Link)`
   line-height: 25px;
   text-decoration: none;
   letter-spacing: 2px;
@@ -53,7 +55,14 @@ export const Link = styled.a`
   font-weight: 700;
   color: #ffffff;
 
-  :hover {
+  :hover,
+  :visited,
+  :link,
+  :active {
+    text-decoration: none;
+  }
+
+  &:hover {
     color: #d87d4a;
   }
 `;
