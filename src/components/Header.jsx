@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 const HeaderContainer = styled.header`
   height: 90px;
   background-color: #000000;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100vw;
   padding: 32px 24px 33px;
