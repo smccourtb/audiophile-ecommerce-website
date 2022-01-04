@@ -25,6 +25,12 @@ export const NavBar = styled.nav`
   gap: 34px;
 `;
 
+export const FooterNav = styled(NavBar)`
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+`;
+
 export const Link = styled.a`
   line-height: 25px;
   text-decoration: none;
