@@ -34,6 +34,9 @@ export const FooterNav = styled(NavBar)`
     flex-direction: row;
     gap: 34px;
   }
+  @media (min-width: 1024px) {
+    padding-top: 75px;
+  }
 `;
 
 export const Link = styled.a`

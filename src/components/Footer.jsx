@@ -23,6 +23,16 @@ const FooterContainer = styled.footer`
     align-items: flex-start;
     gap: 32px;
   }
+
+  @media (min-width: 1024px) {
+    background: linear-gradient(#d87d4a, #d87d4a) top / 101px 4px no-repeat,
+      #000000;
+    background-position-x: 167px;
+    padding: 0 167px 48px 165px;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 155px;
+  }
 `;
 
 const DescriptionText = styled.p`
@@ -48,42 +58,30 @@ const LogoContainer = styled.img`
   @media (min-width: 768px) {
     padding-top: 60px;
   }
+  @media (min-width: 1024px) {
+    padding-top: 75px;
+  }
 `;
 
 const Footer = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 767px" });
+  const isTablet = useMediaQuery({ maxWidth: 1023, minWidth: 768 });
   const isLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
-  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+
   return (
     <FooterContainer>
-      <LogoContainer src={Logo} alt="logo" />
-      <Navigation footer />
-      <DescriptionText>
-        Audiophile is an all in one stop to fulfill your audio needs. We're a
-        small team of music lovers and sound specialists who are devoted to
-        helping you get the most out of personal audio. Come and visit our demo
-        facility - we’re open 7 days a week.
-      </DescriptionText>
-      {isTablet ? (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-            paddingTop: "44px",
-          }}
-        >
-          <DescriptionText as={"small"}>
-            Copyright 2021. All Rights Reserved
-          </DescriptionText>
-          <SocialMediaGroup>
-            <img src={FacebookIcon} alt={"facebook"} />
-            <img src={TwitterIcon} alt={"twitter"} />
-            <img src={InstagramIcon} alt={"instagram"} />
-          </SocialMediaGroup>
-        </div>
-      ) : (
+      {/*Mobile Layout*/}
+      {isMobile && (
         <>
-          <DescriptionText as={"small"}>
+          <LogoContainer src={Logo} alt="logo" />
+          <Navigation footer />
+          <DescriptionText>
+            Audiophile is an all in one stop to fulfill your audio needs. We're
+            a small team of music lovers and sound specialists who are devoted
+            to helping you get the most out of personal audio. Come and visit
+            our demo facility - we’re open 7 days a week.
+          </DescriptionText>
+          <DescriptionText as={"small"} style={{ fontWeight: "700" }}>
             Copyright 2021. All Rights Reserved
           </DescriptionText>
           <SocialMediaGroup>
@@ -91,6 +89,78 @@ const Footer = () => {
             <img src={TwitterIcon} alt={"twitter"} />
             <img src={InstagramIcon} alt={"instagram"} />
           </SocialMediaGroup>
+        </>
+      )}
+
+      {/*Tablet layout*/}
+      {isTablet && (
+        <>
+          {" "}
+          <LogoContainer src={Logo} alt="logo" />
+          <Navigation footer />
+          <DescriptionText>
+            Audiophile is an all in one stop to fulfill your audio needs. We're
+            a small team of music lovers and sound specialists who are devoted
+            to helping you get the most out of personal audio. Come and visit
+            our demo facility - we’re open 7 days a week.
+          </DescriptionText>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+              paddingTop: "44px",
+            }}
+          >
+            <DescriptionText as={"small"} style={{ fontWeight: "700" }}>
+              Copyright 2021. All Rights Reserved
+            </DescriptionText>
+            <SocialMediaGroup>
+              <img src={FacebookIcon} alt={"facebook"} />
+              <img src={TwitterIcon} alt={"twitter"} />
+              <img src={InstagramIcon} alt={"instagram"} />
+            </SocialMediaGroup>
+          </div>
+        </>
+      )}
+
+      {/*Laptop layout*/}
+      {isLaptop && (
+        <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "36px",
+              alignItems: "flex-start",
+            }}
+          >
+            <LogoContainer src={Logo} alt="logo" />
+            <DescriptionText>
+              Audiophile is an all in one stop to fulfill your audio needs.
+              We're a small team of music lovers and sound specialists who are
+              devoted to helping you get the most out of personal audio. Come
+              and visit our demo facility - we’re open 7 days a week.
+            </DescriptionText>
+            <DescriptionText as={"small"} style={{ fontWeight: "700" }}>
+              Copyright 2021. All Rights Reserved
+            </DescriptionText>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "105px",
+              alignItems: "flex-end",
+            }}
+          >
+            <Navigation footer />
+            <SocialMediaGroup>
+              <img src={FacebookIcon} alt={"facebook"} />
+              <img src={TwitterIcon} alt={"twitter"} />
+              <img src={InstagramIcon} alt={"instagram"} />
+            </SocialMediaGroup>
+          </div>
         </>
       )}
     </FooterContainer>
