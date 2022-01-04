@@ -1,8 +1,14 @@
 import { GlobalStyle } from "./styles/global-styles";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// main pages of content
+import Home from "./components/Home";
+import Headphones from "./components/Headphones";
+import Speakers from "./components/Speakers";
+import Earphones from "./components/Earphones";
+import Checkout from "./components/Checkout";
 
 const App = () => (
   <>
@@ -10,6 +16,10 @@ const App = () => (
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/headphones" element={<Headphones />} />
+      <Route path="/speakers" element={<Speakers />} />
+      <Route path="/earphones" element={<Earphones />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
     <Footer />
   </>
