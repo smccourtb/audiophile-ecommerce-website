@@ -4,9 +4,11 @@ import FacebookIcon from "../assets/shared/desktop/icon-facebook.svg";
 import InstagramIcon from "../assets/shared/desktop/icon-instagram.svg";
 import TwitterIcon from "../assets/shared/desktop/icon-twitter.svg";
 import Navigation from "./Navigation";
+import { useMediaQuery } from "react-responsive";
 
 const FooterContainer = styled.footer`
-  background: linear-gradient(#d87d4a, #d87d4a) top / 25% 4px no-repeat, #000000;
+  background: linear-gradient(#d87d4a, #d87d4a) top / 104px 4px no-repeat,
+    #000000;
   position: fixed;
   bottom: 0;
   display: flex;
@@ -14,6 +16,13 @@ const FooterContainer = styled.footer`
   align-items: center;
   gap: 48px;
   padding: 0 24px 38px;
+
+  @media (min-width: 768px) {
+    background-position-x: 39px;
+    padding: 0 40px 46px 39px;
+    align-items: flex-start;
+    gap: 32px;
+  }
 `;
 
 const DescriptionText = styled.p`
@@ -23,9 +32,20 @@ const DescriptionText = styled.p`
   color: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.5;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+`;
+
+const SocialMediaGroup = styled.div`
+  display: flex;
+  gap: 16px;
 `;
 
 const Footer = () => {
+  const isLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   return (
     <FooterContainer>
       <img style={{ paddingTop: "52px" }} src={Logo} alt="logo" />
@@ -36,14 +56,36 @@ const Footer = () => {
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </DescriptionText>
-      <DescriptionText as={"small"}>
-        Copyright 2021. All Rights Reserved
-      </DescriptionText>
-      <div style={{ display: "flex", gap: "16px" }}>
-        <img src={FacebookIcon} alt={"facebook"} />
-        <img src={TwitterIcon} alt={"twitter"} />
-        <img src={InstagramIcon} alt={"instagram"} />
-      </div>
+      {isTablet ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+            paddingTop: "44px",
+          }}
+        >
+          <DescriptionText as={"small"}>
+            Copyright 2021. All Rights Reserved
+          </DescriptionText>
+          <SocialMediaGroup>
+            <img src={FacebookIcon} alt={"facebook"} />
+            <img src={TwitterIcon} alt={"twitter"} />
+            <img src={InstagramIcon} alt={"instagram"} />
+          </SocialMediaGroup>
+        </div>
+      ) : (
+        <>
+          <DescriptionText as={"small"}>
+            Copyright 2021. All Rights Reserved
+          </DescriptionText>
+          <SocialMediaGroup>
+            <img src={FacebookIcon} alt={"facebook"} />
+            <img src={TwitterIcon} alt={"twitter"} />
+            <img src={InstagramIcon} alt={"instagram"} />
+          </SocialMediaGroup>
+        </>
+      )}
     </FooterContainer>
   );
 };

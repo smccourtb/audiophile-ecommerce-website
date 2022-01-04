@@ -29,6 +29,11 @@ export const FooterNav = styled(NavBar)`
   flex-direction: column;
   gap: 16px;
   align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 34px;
+  }
 `;
 
 export const Link = styled.a`
