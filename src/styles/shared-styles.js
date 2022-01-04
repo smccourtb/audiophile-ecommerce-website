@@ -19,3 +19,22 @@ export const Button = styled.button`
     color: #ffffff;
   }
 `;
+
+export const NavBar = styled.nav`
+  display: flex;
+  gap: 34px;
+`;
+
+export const Link = styled.a`
+  line-height: 25px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+
+  :hover {
+    color: #d87d4a;
+  }
+`;
