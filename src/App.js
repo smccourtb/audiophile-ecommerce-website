@@ -9,18 +9,21 @@ import Headphones from "./components/Headphones";
 import Speakers from "./components/Speakers";
 import Earphones from "./components/Earphones";
 import Checkout from "./components/Checkout";
+import { ContentContainer } from "./styles/shared-styles";
 
 const App = () => (
   <>
     <GlobalStyle />
     <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/headphones" element={<Headphones />} />
-      <Route path="/speakers" element={<Speakers />} />
-      <Route path="/earphones" element={<Earphones />} />
-      <Route path="/checkout" element={<Checkout />} />
-    </Routes>
+    <ContentContainer>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/headphones" element={<Headphones />} />
+        <Route path="/speakers" element={<Speakers />} />
+        <Route path="/earphones" element={<Earphones />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </ContentContainer>
     <Footer />
   </>
 );

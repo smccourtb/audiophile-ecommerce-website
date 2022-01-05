@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   padding: 32px 24px 33px;
   display: flex;
   justify-content: center;
-
+  z-index: 1;
   @media (min-width: 768px) {
     padding: 32px 40px 33px;
   }
