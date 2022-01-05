@@ -4,6 +4,7 @@ import HeadphoneImage from "../assets/shared/desktop/image-category-thumbnail-he
 import SpeakerImage from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import EarphoneImage from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import styled from "styled-components/macro";
+import FeaturedProducts from "./FeaturedProducts";
 
 const Content = styled.div`
   display: flex;
@@ -57,6 +58,7 @@ const Home = () => {
             target={"/earphones"}
           />
         </CategorieContainer>
+        <FeaturedProducts />
       </Content>
     </>
   );
