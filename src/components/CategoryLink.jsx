@@ -16,6 +16,10 @@ const CategoryBackground = styled.div`
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1024px) {
+    height: 204px;
+  }
 `;
 
 const ShopNowButton = styled.button`
@@ -26,6 +30,9 @@ const ShopNowButton = styled.button`
   border: none;
   cursor: pointer;
   padding-bottom: 22px;
+  @media (min-width: 1024px) {
+    padding-bottom: 30px;
+  }
 `;
 
 const ButtonText = styled.span`
@@ -51,6 +58,11 @@ const CategoryTitle = styled.p`
   letter-spacing: 1.07143px;
   text-transform: uppercase;
   padding-bottom: 17px;
+
+  @media (min-width: 1024px) {
+    padding-bottom: 15px;
+    font-size: 18px;
+  }
 `;
 
 const CategoryImage = styled.img`
@@ -62,6 +74,12 @@ const CategoryImage = styled.img`
   @media (min-width: 768px) {
     width: 70%;
     height: 65%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 65%;
+    height: 70%;
+    margin-bottom: -130px;
   }
 `;
 

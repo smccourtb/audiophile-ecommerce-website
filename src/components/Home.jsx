@@ -9,6 +9,14 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 24px;
+
+  @media (min-width: 768px) {
+    padding: 0 39px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 165px;
+  }
 `;
 
 const CategorieContainer = styled.div`
@@ -20,6 +28,11 @@ const CategorieContainer = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 10px;
+    padding: 96px 0 48px 0;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 30px;
   }
 `;
 const Home = () => {
