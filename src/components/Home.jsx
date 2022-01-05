@@ -1,5 +1,6 @@
 import MobileHero from "../assets/home/mobile/image-header.jpg";
 import TabletHero from "../assets/home/tablet/image-header.jpg";
+import DesktopHero from "../assets/home/desktop/image-hero.jpg";
 import styled from "styled-components/macro";
 import { Button } from "../styles/shared-styles";
 
@@ -9,12 +10,24 @@ const SubheaderContainer = styled.section`
   background-position-y: -85px;
   background-size: cover;
   height: 100%;
+  background-color: rgb(110, 110, 110);
+  background-blend-mode: multiply;
 
   @media (min-width: 768px) {
     background: url(${TabletHero}) no-repeat;
     padding: 126px 195px 167px 194px;
     background-size: cover;
     background-position-y: -85px;
+    background-color: rgb(110, 110, 110);
+    background-blend-mode: multiply;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 128px 877px 158px 165px;
+    background: url(${DesktopHero}) no-repeat center bottom;
+    background-size: cover;
+    background-color: rgb(110, 110, 110);
+    background-blend-mode: multiply;
   }
 `;
 
@@ -23,13 +36,17 @@ const TextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    text-align: left;
+  }
 `;
 
 const SubheadingTitle = styled.h1`
   font-weight: normal;
   font-size: 14px;
   line-height: 19px;
-  text-align: center;
   letter-spacing: 10px;
   text-transform: uppercase;
   color: #ffffff;
@@ -41,7 +58,6 @@ const ProductLabel = styled.h2`
   font-weight: bold;
   font-size: 36px;
   line-height: 40px;
-  text-align: center;
   letter-spacing: 1.28571px;
   text-transform: uppercase;
   color: #ffffff;
@@ -60,7 +76,6 @@ const ProductDescription = styled.p`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  text-align: center;
   color: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.75;
@@ -68,6 +83,10 @@ const ProductDescription = styled.p`
 
   @media (min-width: 768px) {
     padding: 0 15px 40px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 49px 40px 0;
   }
 `;
 
