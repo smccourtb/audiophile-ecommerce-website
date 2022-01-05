@@ -11,8 +11,10 @@ const SubheaderContainer = styled.section`
   height: 100%;
 
   @media (min-width: 768px) {
-    background: url(${TabletHero}) no-repeat center center;
-    padding: 216px 195px 167px 194px;
+    background: url(${TabletHero}) no-repeat;
+    padding: 126px 195px 167px 194px;
+    background-size: cover;
+    background-position-y: -85px;
   }
 `;
 
@@ -44,6 +46,13 @@ const ProductLabel = styled.h2`
   text-transform: uppercase;
   color: #ffffff;
   padding: 16px 0 24px;
+
+  @media (min-width: 768px) {
+    font-size: 56px;
+    line-height: 58px;
+    letter-spacing: 2px;
+    padding: 24px 0 24px;
+  }
 `;
 
 const ProductDescription = styled.p`
@@ -56,6 +65,10 @@ const ProductDescription = styled.p`
   mix-blend-mode: normal;
   opacity: 0.75;
   padding-bottom: 28px;
+
+  @media (min-width: 768px) {
+    padding: 0 15px 40px;
+  }
 `;
 
 const Home = () => {
