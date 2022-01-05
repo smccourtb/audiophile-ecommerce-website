@@ -3,11 +3,13 @@ import BgCircles from "../assets/home/desktop/pattern-circles.svg";
 import ZX9SpeakerImage from "../assets/home/mobile/image-speaker-zx9.png";
 import { Button } from "../styles/shared-styles";
 import ZX7SpeakerImage from "../assets/home/mobile/image-speaker-zx7.jpg";
-// import YX1EarphonesImage from "../assets/home/mobile/image-earphones-yx1.jpg"
+import YX1EarphonesImage from "../assets/home/mobile/image-earphones-yx1.jpg";
 
 const FeaturedContainer = styled.section`
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  padding-bottom: 60px;
 `;
 
 const FeatureProductContainer = styled.div`
@@ -62,6 +64,16 @@ const SecondaryProductContainer = styled.div`
   background-size: cover;
 `;
 
+const ThirdProductContainer = styled.div`
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 41px 56px 41px 24px;
+  background: #f1f1f1;
+`;
+
 const SecondaryTitle = styled.h3`
   font-style: normal;
   font-weight: bold;
@@ -70,8 +82,11 @@ const SecondaryTitle = styled.h3`
   letter-spacing: 2px;
   text-transform: uppercase;
   padding-bottom: 32px;
-
   color: #000000;
+`;
+
+const ProductImage = styled.img`
+  border-radius: 8px;
 `;
 const FeaturedProducts = () => {
   return (
@@ -89,6 +104,11 @@ const FeaturedProducts = () => {
         <SecondaryTitle>XY7 Speaker</SecondaryTitle>
         <Button>See Product</Button>
       </SecondaryProductContainer>
+      <ProductImage src={YX1EarphonesImage} />
+      <ThirdProductContainer>
+        <SecondaryTitle>YX1 Earphones</SecondaryTitle>
+        <Button>See Product</Button>
+      </ThirdProductContainer>
     </FeaturedContainer>
   );
 };
