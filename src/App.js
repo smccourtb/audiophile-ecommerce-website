@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // main pages of content
 import Home from "./components/Home";
-import Headphones from "./components/Headphones";
+import HeadphonesPage from "./components/HeadphonesPage";
 import Speakers from "./components/Speakers";
 import Earphones from "./components/Earphones";
 import Checkout from "./components/Checkout";
@@ -18,7 +18,7 @@ const App = () => (
     <ContentContainer>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/headphones" element={<Headphones />} />
+        <Route path="/headphones" element={<HeadphonesPage />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/earphones" element={<Earphones />} />
         <Route path="/checkout" element={<Checkout />} />
