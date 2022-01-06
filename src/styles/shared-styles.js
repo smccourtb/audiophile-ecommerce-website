@@ -42,8 +42,7 @@ export const FooterNav = styled(NavBar)`
 
 export const ContentContainer = styled.main`
   display: flex;
-  overflow: auto;
-  min-height: 1000px;
+  flex-direction: column;
 `;
 
 export const StyledLink = styled(Link)`
