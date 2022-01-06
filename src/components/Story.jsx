@@ -1,5 +1,9 @@
 import StoryImgMobile from "../assets/shared/mobile/image-best-gear.jpg";
+import StoryImgTablet from "../assets/shared/tablet/image-best-gear.jpg";
+import StoryImgDesktop from "../assets/shared/desktop/image-best-gear.jpg";
+
 import styled from "styled-components/macro";
+import { useMediaQuery } from "react-responsive";
 
 const StoryContainer = styled.section`
   display: flex;
@@ -7,6 +11,9 @@ const StoryContainer = styled.section`
   width: 100%;
   gap: 32px;
   padding: 80px 0 120px 0;
+  @media (min-width: 768px) {
+    padding: 56px 0 96px 0;
+  }
 `;
 const StoryImage = styled.img`
   border-radius: 8px;
@@ -22,6 +29,19 @@ const StoryHeader = styled.h3`
   text-transform: uppercase;
   color: #000000;
   padding-top: 8px;
+  @media (min-width: 768px) {
+    padding: 8px 58px 0 58px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 44px;
+    /* or 110% */
+    text-align: center;
+    letter-spacing: 1.42857px;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
 `;
 
 const StoryDescription = styled.p`
@@ -29,26 +49,39 @@ const StoryDescription = styled.p`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  /* or 167% */
-
   text-align: center;
-
   color: #000000;
-
   mix-blend-mode: normal;
   opacity: 0.5;
+  @media (min-width: 768px) {
+    padding: 8px 58px 0 58px;
+  }
 `;
 
 const SpecialWord = styled(StoryHeader)`
   color: #d87d4a;
   display: inline-block;
   letter-spacing: 1px;
+  @media (min-width: 768px) {
+    padding: 0;
+  }
 `;
 
 const Story = () => {
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   return (
     <StoryContainer>
-      <StoryImage src={StoryImgMobile} alt="" />
+      <StoryImage
+        src={
+          isDesktop
+            ? StoryImgDesktop
+            : isTablet
+            ? StoryImgTablet
+            : StoryImgMobile
+        }
+        alt=""
+      />
       <StoryHeader>
         Bringing you the <SpecialWord>BEST</SpecialWord>
         audio gear
