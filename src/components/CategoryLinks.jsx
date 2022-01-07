@@ -12,7 +12,6 @@ const CategoryContainer = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 10px;
-    padding: 96px 0 48px 0;
   }
 
   @media (min-width: 1024px) {

@@ -70,11 +70,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 64px 24px 120px 24px;
-
   gap: 120px;
 
   @media (min-width: 768px) {
-    padding: 0 39px;
+    padding: 120px 39px;
   }
 
   @media (min-width: 1024px) {

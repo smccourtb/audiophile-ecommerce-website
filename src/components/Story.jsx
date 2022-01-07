@@ -10,9 +10,7 @@ const StoryContainer = styled.section`
   flex-direction: column;
   width: 100%;
   gap: 32px;
-  @media (min-width: 768px) {
-    padding: 56px 0 96px 0;
-  }
+
   @media (min-width: 1024px) {
     flex-direction: row;
     min-height: 588px;

@@ -5,6 +5,10 @@ const ProductContainer = styled.article`
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media (min-width: 768px) {
+    gap: 52px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -13,6 +17,12 @@ const TextContainer = styled.div`
   align-items: center;
   text-align: center;
   gap: 24px;
+
+  @media (min-width: 768px) {
+    gap: 16px;
+    padding-left: 65px;
+    padding-right: 65px;
+  }
 `;
 
 const NewProduct = styled.h2`
@@ -33,6 +43,13 @@ const ProductName = styled.h2`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #000000;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 1.43px;
+    padding: 0 90px;
+  }
 `;
 
 const ProductDescription = styled.p`
@@ -43,6 +60,10 @@ const ProductDescription = styled.p`
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.5;
+  @media (min-width: 768px) {
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
 `;
 
 const Product = ({ img, name, description, isNew }) => {
