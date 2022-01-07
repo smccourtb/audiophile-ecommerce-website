@@ -45,7 +45,7 @@ const ProductDescription = styled.p`
   opacity: 0.5;
 `;
 
-const Product = ({ img, name, description }) => {
+const Product = ({ img, name, description, isNew }) => {
   return (
     <ProductContainer>
       <img src={img} style={{ width: "100%" }} alt="" />
