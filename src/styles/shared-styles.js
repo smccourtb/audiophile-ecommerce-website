@@ -77,6 +77,7 @@ export const Content = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 0 165px;
+    padding: 160px 165px;
+    gap: 160px;
   }
 `;

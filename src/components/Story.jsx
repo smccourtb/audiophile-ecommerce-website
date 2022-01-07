@@ -15,7 +15,6 @@ const StoryContainer = styled.section`
     flex-direction: row;
     min-height: 588px;
     gap: 125px;
-    padding: 160px 0 200px 0;
   }
 `;
 const StoryImage = styled.img`

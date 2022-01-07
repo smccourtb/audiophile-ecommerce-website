@@ -9,6 +9,11 @@ const ProductContainer = styled.article`
   @media (min-width: 768px) {
     gap: 52px;
   }
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    height: 560px;
+    gap: 125px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -23,13 +28,19 @@ const TextContainer = styled.div`
     padding-left: 65px;
     padding-right: 65px;
   }
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    padding: unset;
+    order: ${({ flip }) => (flip ? -2 : 2)};
+  }
 `;
 
 const NewProduct = styled.h2`
   font-weight: normal;
   font-size: 14px;
   line-height: 19px;
-  text-align: center;
   letter-spacing: 10px;
   text-transform: uppercase;
   color: #d87d4a;
@@ -39,7 +50,6 @@ const ProductName = styled.h2`
   font-weight: bold;
   font-size: 28px;
   line-height: 38px;
-  text-align: center;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #000000;
@@ -50,13 +60,16 @@ const ProductName = styled.h2`
     letter-spacing: 1.43px;
     padding: 0 90px;
   }
+  @media (min-width: 1024px) {
+    padding-left: unset;
+    padding-right: unset;
+  }
 `;
 
 const ProductDescription = styled.p`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  text-align: center;
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.5;
@@ -64,13 +77,25 @@ const ProductDescription = styled.p`
     padding-top: 16px;
     padding-bottom: 8px;
   }
+  @media (min-width: 1024px) {
+    padding-left: unset;
+    padding-right: unset;
+    padding-bottom: 16px;
+  }
 `;
 
-const Product = ({ img, name, description, isNew }) => {
+const ProductImage = styled.img`
+  width: 100%;
+  border-radius: 8px;
+  @media (min-width: 1024px) {
+    width: 48.7%;
+  }
+`;
+const Product = ({ img, name, description, isNew, flip }) => {
   return (
     <ProductContainer>
-      <img src={img} style={{ width: "100%", borderRadius: "8px" }} alt="" />
-      <TextContainer>
+      <ProductImage src={img} alt="" />
+      <TextContainer flip={flip}>
         {isNew && <NewProduct>New Product</NewProduct>}
         <ProductName>{name}</ProductName>
         <ProductDescription>{description}</ProductDescription>

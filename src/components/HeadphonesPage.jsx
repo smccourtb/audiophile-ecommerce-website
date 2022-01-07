@@ -32,6 +32,7 @@ const HeadphonesPage = () => {
           isNew
         />
         <Product
+          flip
           img={isDesktop ? XX99IDesktop : isTablet ? XX99ITablet : XX99IMobile}
           name={"XX99 Mark I Headphones"}
           description={`As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio 
