@@ -50,7 +50,7 @@ const Product = ({ img, name, description, isNew }) => {
     <ProductContainer>
       <img src={img} style={{ width: "100%" }} alt="" />
       <TextContainer>
-        <NewProduct>New Product</NewProduct>
+        {isNew && <NewProduct>New Product</NewProduct>}
         <ProductName>{name}</ProductName>
         <ProductDescription>{description}</ProductDescription>
         <Button primary>See Product</Button>
