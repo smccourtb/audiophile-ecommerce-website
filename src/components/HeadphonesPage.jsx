@@ -9,7 +9,6 @@ import Story from "./Story";
 import CategoryLinks from "./CategoryLinks";
 
 const ContentContainer = styled(Content)`
-  gap: 120px;
   padding: 64px 24px 120px 24px;
 `;
 const HeadphonesPage = () => {

@@ -8,7 +8,6 @@ const CategoryContainer = styled.div`
   display: flex;
   gap: 16px;
   flex-direction: column;
-  padding: 40px 0 80px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;

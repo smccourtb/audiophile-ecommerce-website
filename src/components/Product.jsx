@@ -48,7 +48,7 @@ const ProductDescription = styled.p`
 const Product = ({ img, name, description, isNew }) => {
   return (
     <ProductContainer>
-      <img src={img} style={{ width: "100%" }} alt="" />
+      <img src={img} style={{ width: "100%", borderRadius: "8px" }} alt="" />
       <TextContainer>
         {isNew && <NewProduct>New Product</NewProduct>}
         <ProductName>{name}</ProductName>

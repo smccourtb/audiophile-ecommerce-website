@@ -69,7 +69,9 @@ export const StyledLink = styled(Link)`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 24px;
+  padding: 64px 24px 120px 24px;
+
+  gap: 120px;
 
   @media (min-width: 768px) {
     padding: 0 39px;

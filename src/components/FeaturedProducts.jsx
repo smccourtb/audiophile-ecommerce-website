@@ -20,7 +20,6 @@ const FeaturedContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-bottom: 60px;
 `;
 
 const FeatureProductContainer = styled.div`
