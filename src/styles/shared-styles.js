@@ -65,3 +65,19 @@ export const StyledLink = styled(Link)`
     color: #d87d4a;
   }
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 64px 24px 120px 24px;
+  gap: 120px;
+
+  @media (min-width: 768px) {
+    padding: 120px 39px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 160px 165px;
+    gap: 160px;
+  }
+`;

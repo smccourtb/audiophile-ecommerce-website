@@ -80,11 +80,9 @@ const ProductDescription = styled.p`
   mix-blend-mode: normal;
   opacity: 0.75;
   padding-bottom: 28px;
-
   @media (min-width: 768px) {
     padding: 0 15px 40px;
   }
-
   @media (min-width: 1024px) {
     padding: 0 49px 40px 0;
   }

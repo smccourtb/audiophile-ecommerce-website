@@ -10,15 +10,11 @@ const StoryContainer = styled.section`
   flex-direction: column;
   width: 100%;
   gap: 32px;
-  padding: 80px 0 120px 0;
-  @media (min-width: 768px) {
-    padding: 56px 0 96px 0;
-  }
+
   @media (min-width: 1024px) {
     flex-direction: row;
     min-height: 588px;
     gap: 125px;
-    padding: 160px 0 200px 0;
   }
 `;
 const StoryImage = styled.img`
