@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import HeadphonesPage from "./components/HeadphonesPage";
 import SpeakersPage from "./components/SpeakersPage";
-import Earphones from "./components/Earphones";
+import EarphonesPage from "./components/EarphonesPage";
 import Checkout from "./components/Checkout";
 import { ContentContainer } from "./styles/shared-styles";
 
@@ -20,7 +20,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/headphones" element={<HeadphonesPage />} />
         <Route path="/speakers" element={<SpeakersPage />} />
-        <Route path="/earphones" element={<Earphones />} />
+        <Route path="/earphones" element={<EarphonesPage />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </ContentContainer>
