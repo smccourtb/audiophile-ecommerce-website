@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 // main pages of content
 import Home from "./components/Home";
 import HeadphonesPage from "./components/HeadphonesPage";
-import Speakers from "./components/Speakers";
+import SpeakersPage from "./components/SpeakersPage";
 import Earphones from "./components/Earphones";
 import Checkout from "./components/Checkout";
 import { ContentContainer } from "./styles/shared-styles";
@@ -19,7 +19,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/headphones" element={<HeadphonesPage />} />
-        <Route path="/speakers" element={<Speakers />} />
+        <Route path="/speakers" element={<SpeakersPage />} />
         <Route path="/earphones" element={<Earphones />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
