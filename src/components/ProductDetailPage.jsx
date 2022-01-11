@@ -46,6 +46,33 @@ const IncludesContainer = styled.div`
   flex-direction: column;
   gap: 24px;
 `;
+
+const FeaturesHeader = styled.h3`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.857143px;
+  text-transform: uppercase;
+
+  color: #000000;
+`;
+
+const FeatureDescription = styled.p`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  /* or 167% */
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  white-space: pre-wrap;
+`;
 const ProductDetailPage = ({ data }) => {
   return (
     <Content>
@@ -70,8 +97,8 @@ const ProductDetailPage = ({ data }) => {
         </TextContainer>
       </ProductContainer>
       <FeaturesContainer>
-        <h3>FEATURES</h3>
-        <p>{data.features}</p>
+        <FeaturesHeader>FEATURES</FeaturesHeader>
+        <FeatureDescription>{data.features}</FeatureDescription>
       </FeaturesContainer>
       <IncludesContainer>
         <h4>IN THE BOX</h4>
