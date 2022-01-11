@@ -91,6 +91,7 @@ const ProductImage = styled.img`
     width: 48.7%;
   }
 `;
+
 const Product = ({ img, name, description, isNew, flip }) => {
   return (
     <ProductContainer>
