@@ -4,11 +4,14 @@ import ProductCategory from "./ProductCategory";
 import Story from "./Story";
 import CategoryLinks from "./CategoryLinks";
 import { useMediaQuery } from "react-responsive";
+import { useLayoutEffect } from "react";
 
 const HeadphonesPage = ({ data }) => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const products = data.map((product) => (
     <ProductCategory
       key={product.id}
@@ -21,6 +24,7 @@ const HeadphonesPage = ({ data }) => {
       }
       name={product.name}
       description={product.description}
+      slug={product.slug}
       isNew={product.new}
       flip={product.id % 2}
     />

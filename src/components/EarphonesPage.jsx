@@ -8,10 +8,14 @@ import YX1Tablet from "../assets/product-yx1-earphones/tablet/image-category-pag
 import YX1Desktop from "../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg";
 
 import { useMediaQuery } from "react-responsive";
+import { useLayoutEffect } from "react";
 
 const EarphonesPage = () => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <>
       <SubheaderSimple text={"Earphones"} />

@@ -10,10 +10,14 @@ import ZX7Mobile from "../assets/product-zx7-speaker/mobile/image-category-page-
 import ZX7Tablet from "../assets/product-zx7-speaker/tablet/image-category-page-preview.jpg";
 import ZX7Desktop from "../assets/product-zx7-speaker/desktop/image-category-page-preview.jpg";
 import { useMediaQuery } from "react-responsive";
+import { useLayoutEffect } from "react";
 
 const SpeakersPage = () => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <>
       <SubheaderSimple text={"Speakers"} />
