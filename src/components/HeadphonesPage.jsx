@@ -1,6 +1,6 @@
 import { Content } from "../styles/shared-styles";
 import SubheaderSimple from "./SubheaderSimple";
-import Product from "./Product";
+import ProductCategory from "./ProductCategory";
 import Story from "./Story";
 import CategoryLinks from "./CategoryLinks";
 import { useMediaQuery } from "react-responsive";
@@ -10,7 +10,7 @@ const HeadphonesPage = ({ data }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
 
   const products = data.map((product) => (
-    <Product
+    <ProductCategory
       key={product.id}
       img={
         isDesktop

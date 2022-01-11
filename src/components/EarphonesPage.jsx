@@ -2,7 +2,7 @@ import { Content } from "../styles/shared-styles";
 import SubheaderSimple from "./SubheaderSimple";
 import CategoryLinks from "./CategoryLinks";
 import Story from "./Story";
-import Product from "./Product";
+import ProductCategory from "./ProductCategory";
 import YX1Mobile from "../assets/product-yx1-earphones/mobile/image-category-page-preview.jpg";
 import YX1Tablet from "../assets/product-yx1-earphones/tablet/image-category-page-preview.jpg";
 import YX1Desktop from "../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg";
@@ -16,7 +16,7 @@ const EarphonesPage = () => {
     <>
       <SubheaderSimple text={"Earphones"} />
       <Content>
-        <Product
+        <ProductCategory
           isNew
           img={isDesktop ? YX1Desktop : isTablet ? YX1Tablet : YX1Mobile}
           name={"YX1 WIRELESS EARPHONES"}

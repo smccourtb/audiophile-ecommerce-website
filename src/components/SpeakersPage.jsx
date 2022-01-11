@@ -2,7 +2,7 @@ import { Content } from "../styles/shared-styles";
 import SubheaderSimple from "./SubheaderSimple";
 import CategoryLinks from "./CategoryLinks";
 import Story from "./Story";
-import Product from "./Product";
+import ProductCategory from "./ProductCategory";
 import ZX9Mobile from "../assets/product-zx9-speaker/mobile/image-category-page-preview.jpg";
 import ZX9Tablet from "../assets/product-zx9-speaker/tablet/image-category-page-preview.jpg";
 import ZX9Desktop from "../assets/product-zx9-speaker/desktop/image-category-page-preview.jpg";
@@ -18,7 +18,7 @@ const SpeakersPage = () => {
     <>
       <SubheaderSimple text={"Speakers"} />
       <Content>
-        <Product
+        <ProductCategory
           isNew
           img={isDesktop ? ZX9Desktop : isTablet ? ZX9Tablet : ZX9Mobile}
           name={"ZX9 SPEAKER"}
@@ -26,7 +26,7 @@ const SpeakersPage = () => {
             "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups."
           }
         />
-        <Product
+        <ProductCategory
           flip
           img={isDesktop ? ZX7Desktop : isTablet ? ZX7Tablet : ZX7Mobile}
           name={"ZX7 SPEAKER"}

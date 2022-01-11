@@ -92,7 +92,7 @@ const ProductImage = styled.img`
   }
 `;
 
-const Product = ({ img, name, description, isNew, flip }) => {
+const ProductCategory = ({ img, name, description, isNew, flip }) => {
   return (
     <ProductContainer>
       <ProductImage src={img} alt="" />
@@ -106,4 +106,4 @@ const Product = ({ img, name, description, isNew, flip }) => {
   );
 };
 
-export default Product;
+export default ProductCategory;
