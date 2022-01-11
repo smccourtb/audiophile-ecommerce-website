@@ -71,11 +71,30 @@ const StoryDescription = styled.p`
   }
 `;
 
-const SpecialWord = styled(StoryHeader)`
+const SpecialWord = styled.span`
   color: #d87d4a;
   display: inline-block;
   letter-spacing: 1px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 8px;
   @media (min-width: 768px) {
+    padding: 8px 58px 0 58px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 44px;
+    /* or 110% */
+    text-align: center;
+    letter-spacing: 1.42857px;
+    text-transform: uppercase;
+  }
+  @media (min-width: 1024px) {
+    text-align: left;
     padding: 0;
   }
 `;

@@ -2,7 +2,7 @@ import MobileHero from "../assets/home/mobile/image-header.jpg";
 import TabletHero from "../assets/home/tablet/image-header.jpg";
 import DesktopHero from "../assets/home/desktop/image-hero.jpg";
 import styled from "styled-components/macro";
-import { Button } from "../styles/shared-styles";
+import ProductButton from "./ProductButton";
 
 const SubheaderContainer = styled.section`
   padding: 110px 24px 112px 23px;
@@ -98,7 +98,11 @@ const Subheader = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </ProductDescription>
-        <Button primary>See Product</Button>
+        <ProductButton
+          primary={"true"}
+          path={"xx99-mark-two-headphones"}
+          text={"See Product"}
+        />
       </TextContainer>
     </SubheaderContainer>
   );
