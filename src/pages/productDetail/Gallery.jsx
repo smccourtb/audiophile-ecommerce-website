@@ -13,8 +13,6 @@ const Image = styled.img`
 
 const Gallery = ({ images }) => {
   const { first, second, third } = { ...images };
-  console.log(first);
-  // const images = images.map(image => <Image src={image})
   return (
     <GalleryContainer>
       <Image src={first.mobile} />

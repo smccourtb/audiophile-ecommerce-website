@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { useState } from "react";
 
 const CounterContainer = styled.div`
   width: 120px;
@@ -12,21 +11,19 @@ const CounterContainer = styled.div`
 
 const Button = styled.button`
   width: 33%;
+  height: 100%;
   border: none;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
   line-height: 18px;
-  /* identical to box height */
-
   text-align: center;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   color: #000000;
-
   mix-blend-mode: normal;
   opacity: 0.25;
+  cursor: pointer;
 `;
 
 const Number = styled.p`
@@ -42,20 +39,12 @@ const Number = styled.p`
 
   color: #000000;
 `;
-const Counter = () => {
-  const [amount, setAmount] = useState(1);
-  const decreaseAmount = () => {
-    if (amount > 1) {
-      setAmount((prevAmount) => prevAmount - 1);
-    }
-  };
+const Counter = ({ increment, decrement, count }) => {
   return (
     <CounterContainer>
-      <Button onClick={decreaseAmount}>-</Button>
-      <Number>{amount}</Number>
-      <Button onClick={() => setAmount((prevAmount) => prevAmount + 1)}>
-        +
-      </Button>
+      <Button onClick={decrement}>-</Button>
+      <Number>{count}</Number>
+      <Button onClick={increment}>+</Button>
     </CounterContainer>
   );
 };

@@ -1,8 +1,8 @@
-import MobileHero from "../assets/home/mobile/image-header.jpg";
-import TabletHero from "../assets/home/tablet/image-header.jpg";
-import DesktopHero from "../assets/home/desktop/image-hero.jpg";
+import MobileHero from "../../assets/home/mobile/image-header.jpg";
+import TabletHero from "../../assets/home/tablet/image-header.jpg";
+import DesktopHero from "../../assets/home/desktop/image-hero.jpg";
 import styled from "styled-components/macro";
-import ProductButton from "./ProductButton";
+import ProductButton from "../../components/ProductButton";
 
 const SubheaderContainer = styled.section`
   padding: 110px 24px 112px 23px;

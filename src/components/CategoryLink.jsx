@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import Caret from "../assets/shared/desktop/icon-arrow-right.svg";
+import { StyledButton } from "../styles/shared-styles";
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const CategoryBackground = styled.div`
   }
 `;
 
-const ShopNowButton = styled.button`
+const ShopNowButton = styled(StyledButton)`
   display: flex;
   width: 57.32px;
   justify-content: space-between;
@@ -32,6 +33,10 @@ const ShopNowButton = styled.button`
   padding-bottom: 22px;
   @media (min-width: 1024px) {
     padding-bottom: 30px;
+  }
+
+  :hover {
+    background-color: transparent;
   }
 `;
 
@@ -90,7 +95,7 @@ const CategoryLink = ({ image, title, target }) => {
 
       <CategoryBackground>
         <CategoryTitle>{title}</CategoryTitle>
-        <ShopNowButton>
+        <ShopNowButton to={target}>
           <ButtonText>Shop</ButtonText>
           <img
             style={{ height: "10px", width: "5px" }}
