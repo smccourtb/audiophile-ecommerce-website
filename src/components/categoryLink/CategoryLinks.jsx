@@ -1,7 +1,7 @@
-import CategoryLink from "./CategoryLink";
-import HeadphoneImage from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import SpeakerImage from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import EarphoneImage from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import CategoryLink from "../CategoryLink";
+import HeadphoneImage from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
+import SpeakerImage from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
+import EarphoneImage from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import styled from "styled-components/macro";
 
 const CategoryContainer = styled.div`

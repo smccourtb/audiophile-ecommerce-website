@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import ProductButton from "./ProductButton";
+import ProductButton from "../../components/ProductButton";
 
 const OtherProductsContainer = styled.div`
   display: flex;

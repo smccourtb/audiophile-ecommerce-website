@@ -1,8 +1,8 @@
-import Subheader from "./Subheader";
-import CategoryLinks from "./CategoryLinks";
+import Subheader from "./home/Subheader";
+import CategoryLinks from "../components/categoryLink/CategoryLinks";
 
-import FeaturedProducts from "./FeaturedProducts";
-import Story from "./Story";
+import FeaturedProducts from "./home/FeaturedProducts";
+import Story from "../components/Story";
 import { Content } from "../styles/shared-styles";
 import { useLayoutEffect } from "react";
 

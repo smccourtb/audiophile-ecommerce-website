@@ -1,18 +1,18 @@
 import styled from "styled-components/macro";
-import BgCircles from "../assets/home/desktop/pattern-circles.svg";
-import ZX9SpeakerImgMobile from "../assets/home/mobile/image-speaker-zx9.png";
-import ZX9SpeakerImgTablet from "../assets/home/tablet/image-speaker-zx9.png";
-import ZX9SpeakerImgDesktop from "../assets/home/desktop/image-speaker-zx9.png";
+import BgCircles from "../../assets/home/desktop/pattern-circles.svg";
+import ZX9SpeakerImgMobile from "../../assets/home/mobile/image-speaker-zx9.png";
+import ZX9SpeakerImgTablet from "../../assets/home/tablet/image-speaker-zx9.png";
+import ZX9SpeakerImgDesktop from "../../assets/home/desktop/image-speaker-zx9.png";
 
-import { Button } from "../styles/shared-styles";
-import ZX7SpeakerImgMobile from "../assets/home/mobile/image-speaker-zx7.jpg";
-import ZX7SpeakerImgTablet from "../assets/home/tablet/image-speaker-zx7.jpg";
-import ZX7SpeakerImgDesktop from "../assets/home/desktop/image-speaker-zx7.jpg";
+import { Button } from "../../styles/shared-styles";
+import ZX7SpeakerImgMobile from "../../assets/home/mobile/image-speaker-zx7.jpg";
+import ZX7SpeakerImgTablet from "../../assets/home/tablet/image-speaker-zx7.jpg";
+import ZX7SpeakerImgDesktop from "../../assets/home/desktop/image-speaker-zx7.jpg";
 
-import YX1EarphonesImage from "../assets/home/mobile/image-earphones-yx1.jpg";
-import YX1EarphonesTablet from "../assets/home/tablet/image-earphones-yx1.jpg";
+import YX1EarphonesImage from "../../assets/home/mobile/image-earphones-yx1.jpg";
+import YX1EarphonesTablet from "../../assets/home/tablet/image-earphones-yx1.jpg";
 
-import YX1EarphonesImgDesktop from "../assets/home/desktop/image-earphones-yx1.jpg";
+import YX1EarphonesImgDesktop from "../../assets/home/desktop/image-earphones-yx1.jpg";
 
 import { useMediaQuery } from "react-responsive";
 
