@@ -4,6 +4,8 @@ import ShoppingCart from "../assets/shared/desktop/icon-cart.svg";
 import styled from "styled-components/macro";
 import { useMediaQuery } from "react-responsive";
 import Navigation from "./Navigation";
+import NiceModal from "@ebay/nice-modal-react";
+import CartModal from "./CartModal";
 
 const HeaderContainer = styled.header`
   height: 90px;
@@ -51,13 +53,23 @@ const HeaderImg = styled.img`
 
 const Header = () => {
   const isLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const showCartModal = () => {
+    // Show a modal with arguments passed to the component as props
+    NiceModal.show(CartModal);
+    document.querySelector("body").style.overflow = "hidden";
+  };
   return (
     <HeaderContainer>
       {isLaptop ? (
         <ImgContainer>
           <img src={Logo} alt="logo" />
           <Navigation />
-          <HeaderImg cart={"true"} src={ShoppingCart} alt="shopping-cart" />
+          <HeaderImg
+            cart={"true"}
+            src={ShoppingCart}
+            alt="shopping-cart"
+            onClick={showCartModal}
+          />
         </ImgContainer>
       ) : (
         <ImgContainer>
@@ -68,7 +80,12 @@ const Header = () => {
             alt="menu"
           />
           <img src={Logo} alt="logo" />
-          <HeaderImg cart={"true"} src={ShoppingCart} alt="shopping-cart" />
+          <HeaderImg
+            cart={"true"}
+            src={ShoppingCart}
+            alt="shopping-cart"
+            onClick={showCartModal}
+          />
         </ImgContainer>
       )}
     </HeaderContainer>
