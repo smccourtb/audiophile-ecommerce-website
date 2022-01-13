@@ -9,7 +9,9 @@ const CategoryPage = ({ data }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
-  const products = data.map((product) => <ProductCategory data={product} />);
+  const products = data.map((product) => (
+    <ProductCategory key={product.id} data={product} />
+  ));
   return (
     <>
       <SubheaderSimple text={data[0].category} />
