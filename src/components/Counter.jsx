@@ -1,8 +1,10 @@
 import styled from "styled-components/macro";
+import { useContext } from "react";
+import ShopContext from "../context/ShopContext";
 
 const CounterContainer = styled.div`
-  width: 120px;
-  height: 48px;
+  width: ${({ cart }) => (cart ? "96px" : "120px")};
+  height: ${({ cart }) => (cart ? "32px" : "48px")};
   background-color: #f1f1f1;
   display: flex;
   justify-content: space-evenly;
@@ -31,20 +33,38 @@ const Number = styled.p`
   font-weight: bold;
   font-size: 13px;
   line-height: 18px;
-  /* identical to box height */
-
   text-align: center;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   color: #000000;
 `;
-const Counter = ({ increment, decrement, count }) => {
+
+const Counter = ({ id, cart, increment, decrement, count }) => {
+  const context = useContext(ShopContext);
+
   return (
-    <CounterContainer>
-      <Button onClick={decrement}>-</Button>
+    <CounterContainer cart={cart}>
+      <Button
+        onClick={() => {
+          decrement();
+          if (cart) {
+            context.removeProductFromCart(id, count);
+          }
+        }}
+      >
+        -
+      </Button>
       <Number>{count}</Number>
-      <Button onClick={increment}>+</Button>
+      <Button
+        onClick={() => {
+          increment();
+          if (cart) {
+            context.updateQuantity(id, count);
+          }
+        }}
+      >
+        +
+      </Button>
     </CounterContainer>
   );
 };
