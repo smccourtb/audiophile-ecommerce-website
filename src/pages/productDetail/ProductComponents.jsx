@@ -29,8 +29,8 @@ const ComponentList = styled.ul`
   gap: 8px;
 `;
 const ProductComponents = ({ items }) => {
-  const components = items.map((item) => (
-    <ListItem>
+  const components = items.map((item, idx) => (
+    <ListItem key={idx}>
       <Quantity>{`${item.quantity}x`}</Quantity>
       <Item>{item.item}</Item> {/* TODO: capitalize each word */}
     </ListItem>

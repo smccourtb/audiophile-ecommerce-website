@@ -10,7 +10,6 @@ import Checkout from "./pages/Checkout";
 import { ContentContainer } from "./styles/shared-styles";
 import data from "./data.json";
 import ProductDetail from "./pages/ProductDetail";
-import GlobalState from "./context/GlobalState";
 
 const headphoneData = data
   .filter((product) => product.category === "headphones")
@@ -21,6 +20,7 @@ const categories = [headphoneData, speakerData, earphoneData];
 const App = () => {
   const productPages = data.map((product) => (
     <Route
+      key={product.id}
       path={`/${product.slug}`}
       element={<ProductDetail data={product} />}
     />
@@ -28,13 +28,14 @@ const App = () => {
 
   const categoryPages = categories.map((category) => (
     <Route
+      key={category[0].id}
       path={category[0].category}
       element={<CategoryPage data={category} />}
     />
   ));
 
   return (
-    <GlobalState>
+    <>
       <GlobalStyle />
       <Header />
       <ContentContainer>
@@ -46,7 +47,7 @@ const App = () => {
         </Routes>
       </ContentContainer>
       <Footer />
-    </GlobalState>
+    </>
   );
 };
 

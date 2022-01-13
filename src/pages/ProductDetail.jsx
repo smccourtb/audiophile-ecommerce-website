@@ -98,6 +98,7 @@ const ProductDetail = ({ data }) => {
                   increment={increment}
                   decrement={decrement}
                   count={count}
+                  id={data.id}
                 />
                 <StyledButton
                   primary={"true"}
