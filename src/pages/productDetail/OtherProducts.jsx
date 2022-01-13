@@ -49,12 +49,12 @@ const Header = styled.h5`
 `;
 
 const ProductImage = styled.img`
-  vorder-radius: 8px;
+  border-radius: 8px;
   width: 100%;
 `;
 const OtherProducts = ({ others }) => {
-  const products = others.map((product) => (
-    <ProductContainer>
+  const products = others.map((product, idx) => (
+    <ProductContainer key={idx}>
       <ProductImage src={product.image.mobile} />
       <ProductName>{product.name}</ProductName>
       <ProductButton
