@@ -85,7 +85,6 @@ const Summary = () => {
     let total = 0;
     for (let i of context.cart) {
       total += i.price * i.quantity;
-      console.log(total);
     }
     return total;
   };
