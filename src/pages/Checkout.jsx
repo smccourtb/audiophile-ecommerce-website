@@ -1,5 +1,12 @@
+import CheckoutForm from "./checkout/CheckoutForm";
+import { Content } from "../styles/shared-styles";
+
 const Checkout = () => {
-  return <main>Checkout Page</main>;
+  return (
+    <Content>
+      <CheckoutForm />
+    </Content>
+  );
 };
 
 export default Checkout;
