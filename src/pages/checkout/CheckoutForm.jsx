@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { useState } from "react";
 
 const FormContainer = styled.div`
   display: flex;
@@ -78,11 +79,19 @@ const FormTitle = styled.h2`
   color: #000000;
 `;
 const CheckoutForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [zip, setZip] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("FORM SUBMITTED");
   };
-
+  console.log(name);
   return (
     <FormContainer>
       <FormTitle>Checkout</FormTitle>
@@ -97,15 +106,33 @@ const CheckoutForm = () => {
           <SectionLabel>Billing Details</SectionLabel>
           <InputContainer>
             <InputLabel htmlFor="name">Name</InputLabel>
-            <StyledInput name="name" type="text" required />
+            <StyledInput
+              name="name"
+              type="text"
+              required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="email">Email Address</InputLabel>
-            <StyledInput name="email" type="email" required />
+            <StyledInput
+              name="email"
+              type="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="phone">Phone Number</InputLabel>
-            <StyledInput name="phone" type="tel" required />
+            <StyledInput
+              name="phone"
+              type="tel"
+              required
+              onChange={(e) => setPhone(e.target.value)}
+              value={phone}
+            />
           </InputContainer>
         </SectionContainer>
 
@@ -113,19 +140,42 @@ const CheckoutForm = () => {
           <SectionLabel>Shipping Info</SectionLabel>
           <InputContainer>
             <InputLabel htmlFor="address">Your Address</InputLabel>
-            <StyledInput name="address" type="text" required />
+            <StyledInput
+              name="address"
+              type="text"
+              required
+              onChange={(e) => setAddress(e.target.value)}
+              value={address}
+            />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="zip">ZIP Code</InputLabel>
-            <StyledInput name="zip" type="text" required />
+            <StyledInput
+              name="zip"
+              type="text"
+              required
+              onChange={(e) => setZip(e.target.value)}
+              value={zip}
+            />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="city">City</InputLabel>
-            <StyledInput name="city" type="text" required />
+            <StyledInput
+              name="city"
+              type="text"
+              requiredonChange={(e) => setCity(e.target.value)}
+              value={city}
+            />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="country">Country</InputLabel>
-            <StyledInput name="country" type="text" required />
+            <StyledInput
+              name="country"
+              type="text"
+              required
+              onChange={(e) => setCountry(e.target.value)}
+              value={country}
+            />
           </InputContainer>
         </SectionContainer>
 
@@ -136,6 +186,7 @@ const CheckoutForm = () => {
             as="div"
             style={{ display: "flex", gap: "16px", alignItems: "center" }}
           >
+            {/*TODO: create custom radio selector*/}
             <input
               name="payment"
               id="e-money"
