@@ -80,11 +80,14 @@ const FormTitle = styled.h2`
 const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("FORM SUBMITTED");
   };
+
   return (
     <FormContainer>
       <FormTitle>Checkout</FormTitle>
       <form
+        id={"checkout"}
         style={{ display: "flex", flexDirection: "column", gap: "32px" }}
         onSubmit={(e) => {
           handleSubmit(e);
