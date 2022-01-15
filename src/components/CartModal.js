@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 import ShopContext from "../context/ShopContext";
 import { useContext } from "react";
 
-const ModalBackground = styled.div`
+export const ModalBackground = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -16,7 +16,7 @@ const ModalBackground = styled.div`
   top: 90px;
 `;
 
-const ModalContainer = styled.div`
+export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 32px 28px;
