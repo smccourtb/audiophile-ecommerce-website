@@ -42,7 +42,22 @@ const Image = styled.img`
   background: #f1f1f1;
   height: 64px;
 `;
-const CartItem = ({ id, quantity, name, price, slug }) => {
+
+const QuantityStyle = styled.p`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 25px;
+  /* identical to box height, or 167% */
+
+  text-align: right;
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+`;
+const CartItem = ({ id, quantity, name, price, slug, checkout }) => {
   const [count, increment, decrement] = useCount(quantity);
 
   const shortenProductName = () => {
@@ -65,18 +80,22 @@ const CartItem = ({ id, quantity, name, price, slug }) => {
   };
   return (
     <ItemContainer>
-      <Image src={`./assets/cart/image-${slug}.jpg`} alt="" />
+      <Image src={`./assets/cart/image-${slug}.jpg`} alt={name} />
       <InfoContainer>
         <Name>{shortenProductName(name)}</Name>
         <Price>{`$ ${price}`}</Price>
       </InfoContainer>
-      <Counter
-        id={id}
-        cart={"true"}
-        count={count}
-        increment={increment}
-        decrement={decrement}
-      />
+      {checkout ? (
+        <QuantityStyle>{`${quantity}x`}</QuantityStyle>
+      ) : (
+        <Counter
+          id={id}
+          cart={"true"}
+          count={count}
+          increment={increment}
+          decrement={decrement}
+        />
+      )}
     </ItemContainer>
   );
 };

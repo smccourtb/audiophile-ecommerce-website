@@ -44,7 +44,7 @@ const ModalHeaderLabel = styled.p`
   color: #000000;
 `;
 
-const CheckoutButton = styled(StyledButton)`
+export const CheckoutButton = styled(StyledButton)`
   width: 100%;
 `;
 
