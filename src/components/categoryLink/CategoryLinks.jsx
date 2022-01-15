@@ -19,9 +19,9 @@ const CategoryContainer = styled.div`
   }
 `;
 
-const CategoryLinks = () => {
+const CategoryLinks = ({ menu }) => {
   return (
-    <CategoryContainer>
+    <CategoryContainer menu>
       <CategoryLink
         image={HeadphoneImage}
         title={"Headphones"}
