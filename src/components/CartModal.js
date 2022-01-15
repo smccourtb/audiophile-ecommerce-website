@@ -24,6 +24,10 @@ export const ModalContainer = styled.div`
   border-radius: 8px;
   margin: 24px;
   gap: 32px;
+  @media (min-width: 768px) {
+    width: 377px;
+    margin-left: auto;
+  }
 `;
 
 const ModalHeader = styled.header`
@@ -128,7 +132,7 @@ const CartModal = NiceModal.create(() => {
         }}
       >
         <ModalHeader>
-          <ModalHeaderLabel>Cart({context.cart.length})</ModalHeaderLabel>
+          <ModalHeaderLabel>Cart ({context.cart.length})</ModalHeaderLabel>
           <RemoveAllButton onClick={context.clearCart.bind(this)}>
             Remove all
           </RemoveAllButton>
