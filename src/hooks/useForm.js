@@ -5,6 +5,11 @@ import { ConfirmationModal } from "../components/ConfirmationModal";
 export const useForm = (options) => {
   const [data, setData] = useState(options?.initialValues || { zip: "" });
   const [errors, setErrors] = useState({});
+  const showCartModal = () => {
+    // Show a modal with arguments passed to the component as props
+    NiceModal.show(ConfirmationModal);
+    document.querySelector("body").style.overflow = "hidden";
+  };
   const handleChange = (key, sanitizeFn) => (e) => {
     const value = sanitizeFn ? sanitizeFn(e.target.value) : e.target.value;
     setData({
@@ -15,8 +20,6 @@ export const useForm = (options) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("IN HERE");
-    console.log(options);
     const validations = options?.validations;
     if (validations) {
       let valid = true;
@@ -55,6 +58,7 @@ export const useForm = (options) => {
     if (options?.onSubmit) {
       options.onSubmit();
     }
+    showCartModal();
   };
 
   return {
