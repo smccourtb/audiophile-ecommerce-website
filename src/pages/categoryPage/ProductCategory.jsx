@@ -7,28 +7,66 @@ import {
   StyledButton,
   TextContainer,
 } from "../../styles/shared-styles";
+import styled from "styled-components/macro";
 import { useMediaQuery } from "react-responsive";
 
+const CategoryContainer = styled(ProductContainer)`
+  flex-direction: column;
+`;
+
+const CategoryImage = styled(ProductImage)`
+  @media (min-width: 768px) {
+    height: 352px;
+  }
+`;
+
+const CategoryTextContainer = styled(TextContainer)`
+  text-align: center;
+  align-items: center;
+  @media (min-width: 768px) {
+    padding: 0 60px;
+  }
+`;
+
+const CategoryName = styled(ProductName)`
+  @media (min-width: 768px) {
+    padding: 0 200px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 44px;
+    /* or 110% */
+    letter-spacing: 1.42857px;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
+`;
+
+const NewProductText = styled(NewProduct)`
+  font-size: 14px;
+  line-height: 19px;
+`;
 const ProductCategory = ({ data }) => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const { name, description, id, slug, categoryImage } = { ...data };
   const { mobile, tablet, desktop } = { ...categoryImage };
   return (
-    <ProductContainer>
-      <ProductImage
+    <CategoryContainer>
+      <CategoryImage
         src={isDesktop ? desktop : isTablet ? tablet : mobile}
         alt={name}
       />
-      <TextContainer flip={id > 1 && id % 2}>
-        {data.new && <NewProduct>New Product</NewProduct>}
-        <ProductName>{name}</ProductName>
+      <CategoryTextContainer flip={id > 1 && id % 2}>
+        {data.new && <NewProductText>New Product</NewProductText>}
+        <CategoryName>{name}</CategoryName>
         <ProductDescription>{description}</ProductDescription>
         <StyledButton primary={"true"} to={`/${slug}`}>
           See Product
         </StyledButton>
-      </TextContainer>
-    </ProductContainer>
+      </CategoryTextContainer>
+    </CategoryContainer>
   );
 };
 

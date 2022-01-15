@@ -14,7 +14,10 @@ const CheckoutContainer = styled(ContentContainer)`
 const Checkout = () => {
   return (
     <CheckoutContainer>
-      <GoBackLink to={"/"}>Go Back</GoBackLink>
+      <GoBackLink style={{ marginBottom: "0" }} to={"/"}>
+        Go Back
+      </GoBackLink>
+
       <CheckoutForm />
       <Summary />
     </CheckoutContainer>

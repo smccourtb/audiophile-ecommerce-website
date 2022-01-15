@@ -210,7 +210,12 @@ export const GoBackLink = styled(Link)`
   opacity: 0.5;
   margin-bottom: -96px;
   text-decoration: none;
-  //@media (min-width: 768px) {
-  //  margin: 0;
-  //}
+  transition: color 0.2s ease-out;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+
+  :hover {
+    color: #d87d4a;
+  }
 `;

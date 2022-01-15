@@ -6,7 +6,7 @@ import CategoryLinks from "../components/CategoryLinks";
 import { useLayoutEffect } from "react";
 import styled from "styled-components/macro";
 
-const CategoryContainer = styled(ContentContainer)`
+const CategoriesContainer = styled(ContentContainer)`
   padding: 56px 24px 120px;
   @media (min-width: 768px) {
     padding: 120px 40px 120px 39px;
@@ -22,11 +22,11 @@ const CategoryPage = ({ data }) => {
   return (
     <>
       <SubheaderSimple text={data[0].category} />
-      <CategoryContainer>
+      <CategoriesContainer>
         {products}
         <CategoryLinks />
         <Story />
-      </CategoryContainer>
+      </CategoriesContainer>
     </>
   );
 };
