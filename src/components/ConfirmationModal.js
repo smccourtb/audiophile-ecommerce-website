@@ -151,7 +151,7 @@ export const ConfirmationModal = NiceModal.create(() => {
             <TotalPrice>$ 5,446</TotalPrice>
           </PriceContainer>
         </ColumnFlexContainer>
-        <CheckoutButton primary onClick={modal.remove} to={"/"}>
+        <CheckoutButton primary={"true"} onClick={modal.remove} to={"/"}>
           Back To Home
         </CheckoutButton>
       </ModalContainer>

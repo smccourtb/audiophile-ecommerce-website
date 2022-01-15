@@ -16,7 +16,6 @@ export const useForm = (options) => {
     console.log("IN HERE");
     console.log(options);
     const validations = options?.validations;
-    console.log("VALIDATIONS: ", validations);
     if (validations) {
       let valid = true;
       const newErrors = {};
