@@ -163,6 +163,19 @@ const ProductImage = styled.img`
   }
 `;
 
+const SeeProductButton = styled(Button)`
+  background-color: #000000;
+  color: #ffffff;
+  transition: background-color 0.2s ease-out;
+  border: none;
+
+  :hover {
+    transition: background-color 0.2s ease-out;
+
+    background: #4c4c4c;
+  }
+`;
+
 const FeaturedProducts = () => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -196,7 +209,7 @@ const FeaturedProducts = () => {
               truly remarkable sound.
             </ProductDescription>
 
-            <Button>See Product</Button>
+            <SeeProductButton>See Product</SeeProductButton>
           </div>
         ) : (
           <>
@@ -206,7 +219,7 @@ const FeaturedProducts = () => {
               truly remarkable sound.
             </ProductDescription>
 
-            <Button>See Product</Button>
+            <SeeProductButton>See Product</SeeProductButton>
           </>
         )}
       </FeatureProductContainer>
@@ -219,7 +232,7 @@ const FeaturedProducts = () => {
           <ProductImage src={YX1EarphonesImgDesktop} />
           <ThirdProductContainer>
             <SecondaryTitle>YX1 Earphones</SecondaryTitle>
-            <Button s>See Product</Button>
+            <Button>See Product</Button>
           </ThirdProductContainer>
         </div>
       ) : (
@@ -229,7 +242,7 @@ const FeaturedProducts = () => {
               <ProductImage src={YX1EarphonesTablet} />
               <ThirdProductContainer>
                 <SecondaryTitle>YX1 Earphones</SecondaryTitle>
-                <Button s>See Product</Button>
+                <Button>See Product</Button>
               </ThirdProductContainer>
             </div>
           ) : (

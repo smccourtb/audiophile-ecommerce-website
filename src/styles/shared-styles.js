@@ -103,7 +103,8 @@ export const Content = styled.div`
   gap: 120px;
 
   @media (min-width: 768px) {
-    padding: 120px 39px;
+    padding: 96px 39px;
+    gap: 96px;
   }
 
   @media (min-width: 1024px) {
