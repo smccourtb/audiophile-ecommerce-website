@@ -88,15 +88,17 @@ const RemoveAllButton = styled.button`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  /* identical to box height, or 167% */
   background: none;
   border: none;
   text-decoration-line: underline;
-
   color: #000000;
-
   mix-blend-mode: normal;
   opacity: 0.5;
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+  :hover  {
+    color: #d87d4a;
+  }
 `;
 const CartModal = NiceModal.create(() => {
   const modal = useModal();
