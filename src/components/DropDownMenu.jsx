@@ -1,4 +1,4 @@
-import CategoryLinks from "./categoryLink/CategoryLinks";
+import CategoryLinks from "./CategoryLinks";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import { ModalBackground, ModalContainer } from "./CartModal";
 

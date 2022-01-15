@@ -15,7 +15,7 @@ import Counter from "../components/Counter";
 import ProductComponents from "./productDetail/ProductComponents";
 import Gallery from "./productDetail/Gallery";
 import OtherProducts from "./productDetail/OtherProducts";
-import CategoryLinks from "../components/categoryLink/CategoryLinks";
+import CategoryLinks from "../components/CategoryLinks";
 import Story from "../components/Story";
 import useCount from "../hooks/useCount";
 

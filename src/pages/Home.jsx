@@ -1,5 +1,5 @@
 import Subheader from "./home/Subheader";
-import CategoryLinks from "../components/categoryLink/CategoryLinks";
+import CategoryLinks from "../components/CategoryLinks";
 
 import FeaturedProducts from "./home/FeaturedProducts";
 import Story from "../components/Story";
