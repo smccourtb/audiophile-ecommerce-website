@@ -83,7 +83,6 @@ const SpecialWord = styled.span`
   text-transform: uppercase;
   padding-top: 8px;
   @media (min-width: 768px) {
-    padding: 8px 58px 0 58px;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
