@@ -61,6 +61,18 @@ const LogoContainer = styled.img`
   }
 `;
 
+const SocialImage = styled.svg`
+  cursor: pointer;
+  width: 24px;
+  height: ${({ small }) => (small ? "19.5px" : "24px")};
+  background-image: ${({ src }) => src && `url(${src})`};
+
+  :hover {
+    filter: invert(35%) sepia(81%) saturate(2078%) hue-rotate(346deg) brightness(90%) contrast(76%);
+  }
+}
+`;
+
 const Footer = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 767px" });
   const isTablet = useMediaQuery({ maxWidth: 1023, minWidth: 768 });
@@ -83,9 +95,9 @@ const Footer = () => {
             Copyright 2021. All Rights Reserved
           </DescriptionText>
           <SocialMediaGroup>
-            <img src={FacebookIcon} alt={"facebook"} />
-            <img src={TwitterIcon} alt={"twitter"} />
-            <img src={InstagramIcon} alt={"instagram"} />
+            <SocialImage src={FacebookIcon} alt={"facebook"} />
+            <SocialImage small src={TwitterIcon} alt={"twitter"} />
+            <SocialImage src={InstagramIcon} alt={"instagram"} />
           </SocialMediaGroup>
         </>
       )}
@@ -114,9 +126,9 @@ const Footer = () => {
               Copyright 2021. All Rights Reserved
             </DescriptionText>
             <SocialMediaGroup>
-              <img src={FacebookIcon} alt={"facebook"} />
-              <img src={TwitterIcon} alt={"twitter"} />
-              <img src={InstagramIcon} alt={"instagram"} />
+              <SocialImage src={FacebookIcon} alt={"facebook"} />
+              <SocialImage small src={TwitterIcon} alt={"twitter"} />
+              <SocialImage src={InstagramIcon} alt={"instagram"} />
             </SocialMediaGroup>
           </div>
         </>
@@ -154,9 +166,9 @@ const Footer = () => {
           >
             <Navigation footer />
             <SocialMediaGroup>
-              <img src={FacebookIcon} alt={"facebook"} />
-              <img src={TwitterIcon} alt={"twitter"} />
-              <img src={InstagramIcon} alt={"instagram"} />
+              <SocialImage src={FacebookIcon} alt={"facebook"} />
+              <SocialImage small src={TwitterIcon} alt={"twitter"} />
+              <SocialImage src={InstagramIcon} alt={"instagram"} />
             </SocialMediaGroup>
           </div>
         </>
