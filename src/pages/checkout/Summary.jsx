@@ -10,6 +10,7 @@ const SummaryContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding: 24px;
 `;
 
 const SummaryTitle = styled.h3`
@@ -103,7 +104,7 @@ const Summary = () => {
         </PriceItem>
         <PriceItem>
           <PriceLabel>VAT (INCLUDED)</PriceLabel>
-          <Price>$ {calculateTotalPrice() * 0.2}</Price>
+          <Price>$ {(calculateTotalPrice() * 0.2).toFixed(2)}</Price>
         </PriceItem>
       </Subtotal>
       <PriceItem>

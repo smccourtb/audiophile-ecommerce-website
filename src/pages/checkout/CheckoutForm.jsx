@@ -9,6 +9,8 @@ const FormContainer = styled.div`
   flex-direction: column;
   padding: 24px;
   gap: 32px;
+  background: #ffffff;
+  border-radius: 8px;
 `;
 
 const SectionContainer = styled.div`

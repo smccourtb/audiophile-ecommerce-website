@@ -3,7 +3,7 @@ import CategoryLinks from "../components/CategoryLinks";
 
 import FeaturedProducts from "./home/FeaturedProducts";
 import Story from "../components/Story";
-import { Content } from "../styles/shared-styles";
+import { ContentContainer } from "../styles/shared-styles";
 import { useLayoutEffect } from "react";
 
 const Home = () => {
@@ -13,11 +13,11 @@ const Home = () => {
   return (
     <>
       <Subheader />
-      <Content>
+      <ContentContainer>
         <CategoryLinks />
         <FeaturedProducts />
         <Story />
-      </Content>
+      </ContentContainer>
     </>
   );
 };

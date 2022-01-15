@@ -4,6 +4,7 @@ const GalleryContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-bottom: -32px;
 `;
 
 const Image = styled.img`

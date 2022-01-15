@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import ShopContext from "../context/ShopContext";
 import styled from "styled-components/macro";
 import {
-  Content,
+  ContentContainer,
+  GoBackLink,
   NewProduct,
   ProductContainer,
   ProductDescription,
@@ -18,6 +18,15 @@ import OtherProducts from "./productDetail/OtherProducts";
 import CategoryLinks from "../components/CategoryLinks";
 import Story from "../components/Story";
 import useCount from "../hooks/useCount";
+import { useMediaQuery } from "react-responsive";
+
+const ProductDetailContainer = styled(ContentContainer)`
+  padding: 16px 24px 120px;
+  gap: 120px;
+  @media (min-width: 768px) {
+    padding: 33px 39.5px 120px 39px;
+  }
+`;
 
 const Price = styled.p`
   font-style: normal;
@@ -41,12 +50,14 @@ const FeaturesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin: -32px 0 -7px;
 `;
 
 const IncludesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: -32px;
 `;
 
 const FeaturesHeader = styled.h3`
@@ -75,23 +86,38 @@ const FeatureDescription = styled.p`
   opacity: 0.5;
   white-space: pre-wrap;
 `;
+
+const ComponentsHeader = styled.h4`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.857143px;
+  text-transform: uppercase;
+  color: #000000;
+`;
+
 const ProductDetail = ({ data }) => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const [count, increment, decrement] = useCount(1);
+  const { mobile, tablet, desktop } = { ...data.image };
   return (
     <ShopContext.Consumer>
       {(context) => (
-        <Content>
-          <Link to={"/"}>Go Back</Link>
-          {/*This should be tied to browser history instead of going to homepage*/}
+        <ProductDetailContainer>
+          <GoBackLink to={"/"}>Go Back</GoBackLink>
           <ProductContainer>
-            <ProductImage src={data.image.mobile} />
+            <ProductImage
+              src={isDesktop ? desktop : isTablet ? tablet : mobile}
+            />
             <TextContainer
               style={{ alignItems: "flex-start", textAlign: "left" }}
             >
               {data.new && <NewProduct>New Product</NewProduct>}
               <ProductName>{data.name}</ProductName>
               <ProductDescription>{data.description}</ProductDescription>
-              <Price>{`$${data.price}`}</Price>{" "}
+              <Price>{`$ ${data.price}`}</Price>{" "}
               {/*TODO: write function that adds commas to prices*/}
               <ButtonContainer>
                 <Counter
@@ -116,14 +142,14 @@ const ProductDetail = ({ data }) => {
             <FeatureDescription>{data.features}</FeatureDescription>
           </FeaturesContainer>
           <IncludesContainer>
-            <h4>IN THE BOX</h4>
+            <ComponentsHeader>IN THE BOX</ComponentsHeader>
             <ProductComponents items={data.includes} />
           </IncludesContainer>
           <Gallery images={data.gallery} />
           <OtherProducts others={data.others} />
           <CategoryLinks />
           <Story />
-        </Content>
+        </ProductDetailContainer>
       )}
     </ShopContext.Consumer>
   );
