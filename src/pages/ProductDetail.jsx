@@ -61,6 +61,7 @@ const IncludesContainer = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     width: 100%;
+    margin-bottom: 0;
   }
 `;
 
