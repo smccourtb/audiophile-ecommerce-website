@@ -1,6 +1,8 @@
 import styled from "styled-components/macro";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
+import NiceModal from "@ebay/nice-modal-react";
+import CartModal from "../../components/CartModal";
 
 const FormContainer = styled.div`
   display: flex;
@@ -106,6 +108,11 @@ const ErrorMessage = styled.p`
 
 const CheckoutForm = () => {
   const [state, setState] = useState(true);
+  const showCartModal = () => {
+    // Show a modal with arguments passed to the component as props
+    NiceModal.show(CartModal);
+    document.querySelector("body").style.overflow = "hidden";
+  };
   const { handleChange, handleSubmit, errors, data } = useForm({
     validations: {
       name: {
@@ -119,22 +126,22 @@ const CheckoutForm = () => {
         },
       },
       email: {
-        pattern: {
-          value: "/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/",
-          message: "Wrong format",
-        },
+        // pattern: {
+        //   value: "/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/",
+        //   message: "Wrong format",
+        // },
         required: {
           value: true,
           message: "Wrong format",
         },
       },
       phone: {
+        // pattern: {
+        //   value: "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$",
+        //   message: "Wrong format",
+        // },
         required: {
           value: true,
-          message: "Wrong format",
-        },
-        pattern: {
-          value: "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$",
           message: "Wrong format",
         },
       },
