@@ -19,6 +19,10 @@ const HeaderText = styled.h1`
   letter-spacing: 1.42857px;
   text-transform: uppercase;
   color: #ffffff;
+  @media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
 `;
 
 const SubheaderSimple = ({ text }) => {
