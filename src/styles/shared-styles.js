@@ -129,15 +129,13 @@ export const ProductContainer = styled.article`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 24px;
 
   @media (min-width: 768px) {
-    text-align: left;
     gap: 32px;
     width: 100%;
-    align-items: flex-start;
   }
   @media (min-width: 1024px) {
     align-items: flex-start;
