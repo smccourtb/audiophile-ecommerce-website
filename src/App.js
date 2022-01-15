@@ -16,7 +16,9 @@ const headphoneData = data
   .filter((product) => product.category === "headphones")
   .sort((a, b) => b.id - a.id);
 
-const speakerData = data.filter((product) => product.category === "speakers");
+const speakerData = data
+  .filter((product) => product.category === "speakers")
+  .sort((a, b) => b.id - a.id);
 
 const earphoneData = data.filter((product) => product.category === "earphones");
 
@@ -43,14 +45,12 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
-      <ContentContainer>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
-          {categoryPages}
-          {productPages}
-        </Routes>
-      </ContentContainer>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Checkout />} />
+        {categoryPages}
+        {productPages}
+      </Routes>
       <Footer />
     </>
   );

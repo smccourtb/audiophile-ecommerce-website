@@ -12,8 +12,8 @@ import { useMediaQuery } from "react-responsive";
 const ProductCategory = ({ data }) => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
-  const { name, description, id, slug } = { ...data };
-  const { mobile, tablet, desktop } = { ...data.categoryImage };
+  const { name, description, id, slug, categoryImage } = { ...data };
+  const { mobile, tablet, desktop } = { ...categoryImage };
   return (
     <ProductContainer>
       <ProductImage
