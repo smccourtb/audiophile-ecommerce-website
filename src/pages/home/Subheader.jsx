@@ -50,8 +50,10 @@ const SubheadingTitle = styled.h1`
   letter-spacing: 10px;
   text-transform: uppercase;
   color: #ffffff;
-  mix-blend-mode: normal;
-  opacity: 0.5;
+  @media (min-width: 768px) {
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
 `;
 
 const ProductLabel = styled.h2`
