@@ -13,6 +13,10 @@ const FormContainer = styled.div`
   @media (min-width: 768px) {
     padding: 30px 27px 30px 28px;
   }
+  @media (min-width: 1024px) {
+    padding: 54px 48px 48px 48px;
+    width: 67%;
+  }
 `;
 
 const SectionContainer = styled.div`
