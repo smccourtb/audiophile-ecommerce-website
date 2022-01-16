@@ -1,7 +1,16 @@
 import CategoryLinks from "./CategoryLinks";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import { ModalBackground, ModalContainer } from "./CartModal";
+import styled from "styled-components/macro";
 
+const DropDownContainer = styled(ModalContainer)`
+  margin: 0;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+  @media (min-width: 768px) {
+    padding: 56px 40px 67px;
+  }
+`;
 export const DropDownMenu = NiceModal.create(() => {
   const modal = useModal();
   return (
@@ -11,15 +20,14 @@ export const DropDownMenu = NiceModal.create(() => {
         modal.remove();
       }}
     >
-      <ModalContainer
-        style={{ margin: "0px", borderRadius: "0 0 8px 8px" }}
+      <DropDownContainer
         onClick={(e) => {
           e.stopPropagation();
           modal.remove();
         }}
       >
         <CategoryLinks />
-      </ModalContainer>
+      </DropDownContainer>
     </ModalBackground>
   );
 });
