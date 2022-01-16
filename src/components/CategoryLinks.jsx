@@ -1,14 +1,14 @@
-import CategoryLink from "../CategoryLink";
-import HeadphoneImage from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import SpeakerImage from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import EarphoneImage from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import CategoryLink from "./categoryLinks/CategoryLink";
+import HeadphoneImage from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
+import SpeakerImage from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
+import EarphoneImage from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import styled from "styled-components/macro";
 
 const CategoryContainer = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 68px;
   flex-direction: column;
-
+  padding-top: 56px;
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 10px;
@@ -19,9 +19,9 @@ const CategoryContainer = styled.div`
   }
 `;
 
-const CategoryLinks = ({ menu }) => {
+const CategoryLinks = () => {
   return (
-    <CategoryContainer menu>
+    <CategoryContainer>
       <CategoryLink
         image={HeadphoneImage}
         title={"Headphones"}

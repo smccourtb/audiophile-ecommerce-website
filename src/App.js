@@ -6,17 +6,24 @@ import Footer from "./components/Footer";
 // main pages of content
 import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
+import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
+
 import { ContentContainer } from "./styles/shared-styles";
 import data from "./data.json";
-import ProductDetail from "./pages/ProductDetail";
 
 const headphoneData = data
   .filter((product) => product.category === "headphones")
   .sort((a, b) => b.id - a.id);
-const speakerData = data.filter((product) => product.category === "speakers");
+
+const speakerData = data
+  .filter((product) => product.category === "speakers")
+  .sort((a, b) => b.id - a.id);
+
 const earphoneData = data.filter((product) => product.category === "earphones");
+
 const categories = [headphoneData, speakerData, earphoneData];
+
 const App = () => {
   const productPages = data.map((product) => (
     <Route
@@ -38,14 +45,12 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
-      <ContentContainer>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
-          {categoryPages}
-          {productPages}
-        </Routes>
-      </ContentContainer>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Checkout />} />
+        {categoryPages}
+        {productPages}
+      </Routes>
       <Footer />
     </>
   );

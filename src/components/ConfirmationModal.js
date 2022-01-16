@@ -2,8 +2,14 @@ import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import { useContext } from "react";
 import shopContext from "../context/ShopContext";
 import CartItem from "./cartModal/CartItem";
-import { CheckoutButton, ModalBackground, ModalContainer } from "./CartModal";
+import {
+  calculateTotal,
+  CheckoutButton,
+  ModalBackground,
+  ModalContainer,
+} from "./CartModal";
 import styled from "styled-components/macro";
+import { useMediaQuery } from "react-responsive";
 
 const Circle = styled.div`
   background: #d87d4a;
@@ -44,6 +50,12 @@ const ThankYou = styled.h3`
   color: #000000;
   text-align: left;
   white-space: pre-wrap;
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14286px;
+    margin-bottom: -8px;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -62,6 +74,11 @@ const ColumnFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 0;
+    margin-bottom: 22px;
+  }
 `;
 
 const TotalHeader = styled.p`
@@ -82,6 +99,14 @@ const PriceContainer = styled.div`
   padding: 15px 24px 19px;
   margin: 0 -24px -24px;
   gap: 8px;
+  @media (min-width: 768px) {
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+    padding: 41px 73px 42px 24px;
+    margin: 0;
+  }
 `;
 
 const TotalPrice = styled.p`
@@ -100,6 +125,9 @@ const ExtraItemsContainer = styled.div`
   justify-content: center;
   background: linear-gradient(#f1f1f1, #f1f1f1) 100% 1px no-repeat,
     rgba(215, 211, 211, 0.73);
+  @media (min-width: 768px) {
+    padding: 25px 0 0 0;
+  }
 `;
 
 const ExtraItemsText = styled.p`
@@ -112,7 +140,23 @@ const ExtraItemsText = styled.p`
   mix-blend-mode: normal;
   opacity: 0.5;
 `;
+
+const ConfirmationModalContainer = styled(ModalContainer)`
+  padding: 32px;
+  @media (min-width: 768px) {
+    padding: 48px;
+    width: 100%;
+    margin: 0;
+  }
+`;
+
+const ConfirmationModalBackground = styled(ModalBackground)`
+  padding: 90px 114px 0;
+`;
+
 export const ConfirmationModal = NiceModal.create(() => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const modal = useModal();
   const context = useContext(shopContext);
 
@@ -128,33 +172,64 @@ export const ConfirmationModal = NiceModal.create(() => {
     />
   ));
   return (
-    <ModalBackground>
-      <ModalContainer style={{ padding: "32px 32px" }}>
+    <ConfirmationModalBackground>
+      <ConfirmationModalContainer>
         <Circle />
         <ThankYou>{`THANK YOU \nFOR YOUR ORDER`}</ThankYou>
         <Paragraph>You will receive an email confirmation shortly.</Paragraph>
-        <ColumnFlexContainer>
-          {purchasedItems.length > 1 ? (
-            <>
-              {purchasedItems[0]}
-              <ExtraItemsContainer>
-                <ExtraItemsText>{`and ${
-                  context.cart.length - 1
-                } other item(s)`}</ExtraItemsText>
-              </ExtraItemsContainer>
-            </>
-          ) : (
-            purchasedItems
-          )}
-          <PriceContainer>
-            <TotalHeader>GRAND TOTAL</TotalHeader>
-            <TotalPrice>$ 5,446</TotalPrice>
-          </PriceContainer>
-        </ColumnFlexContainer>
+        {isTablet ? (
+          <ColumnFlexContainer>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "24px",
+                flexGrow: "1",
+                gap: "24px",
+              }}
+            >
+              {purchasedItems.length > 1 ? (
+                <>
+                  {purchasedItems[0]}
+                  <ExtraItemsContainer>
+                    <ExtraItemsText>{`and ${
+                      context.cart.length - 1
+                    } other item(s)`}</ExtraItemsText>
+                  </ExtraItemsContainer>
+                </>
+              ) : (
+                purchasedItems
+              )}
+            </div>
+            <PriceContainer>
+              <TotalHeader>GRAND TOTAL</TotalHeader>
+              <TotalPrice>$ 5,446</TotalPrice>
+            </PriceContainer>
+          </ColumnFlexContainer>
+        ) : (
+          <ColumnFlexContainer>
+            {purchasedItems.length > 1 ? (
+              <>
+                {purchasedItems[0]}
+                <ExtraItemsContainer>
+                  <ExtraItemsText>{`and ${
+                    context.cart.length - 1
+                  } other item(s)`}</ExtraItemsText>
+                </ExtraItemsContainer>
+              </>
+            ) : (
+              { purchasedItems }
+            )}
+            <PriceContainer>
+              <TotalHeader>GRAND TOTAL</TotalHeader>
+              <TotalPrice>{calculateTotal(context.cart)}</TotalPrice>
+            </PriceContainer>
+          </ColumnFlexContainer>
+        )}
         <CheckoutButton primary={"true"} onClick={modal.remove} to={"/"}>
           Back To Home
         </CheckoutButton>
-      </ModalContainer>
-    </ModalBackground>
+      </ConfirmationModalContainer>
+    </ConfirmationModalBackground>
   );
 });

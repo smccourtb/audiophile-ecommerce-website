@@ -1,14 +1,18 @@
 import styled from "styled-components/macro";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
-import NiceModal from "@ebay/nice-modal-react";
-import CartModal from "../../components/CartModal";
+import { useMediaQuery } from "react-responsive";
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
   gap: 32px;
+  background: #ffffff;
+  border-radius: 8px;
+  @media (min-width: 768px) {
+    padding: 30px 27px 30px 28px;
+  }
 `;
 
 const SectionContainer = styled.div`
@@ -17,6 +21,10 @@ const SectionContainer = styled.div`
   gap: 24px;
   background: #ffffff;
   border-radius: 8px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+  }
 `;
 
 const SectionLabel = styled.p`
@@ -27,6 +35,9 @@ const SectionLabel = styled.p`
   letter-spacing: 0.928571px;
   text-transform: uppercase;
   color: #d87d4a;
+  @media (min-width: 768px) {
+    margin-bottom: -16px;
+  }
 `;
 
 const InputLabel = styled.label`
@@ -42,6 +53,7 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 9px;
+  width: 100%;
 
   color: ${({ error }) => error && "#CD2C2C"};
 `;
@@ -89,6 +101,12 @@ const FormTitle = styled.h2`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #000000;
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14286px;
+    padding-bottom: 12px;
+  }
 `;
 
 const LabelContainer = styled.div`
@@ -106,13 +124,23 @@ const ErrorMessage = styled.p`
   letter-spacing: -0.214286px;
 `;
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+const FormColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+`;
+
 const CheckoutForm = () => {
   const [state, setState] = useState(true);
-  const showCartModal = () => {
-    // Show a modal with arguments passed to the component as props
-    NiceModal.show(CartModal);
-    document.querySelector("body").style.overflow = "hidden";
-  };
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const { handleChange, handleSubmit, errors, data } = useForm({
     validations: {
       name: {
@@ -178,201 +206,411 @@ const CheckoutForm = () => {
   return (
     <FormContainer>
       <FormTitle>Checkout</FormTitle>
-      <form
-        noValidate
-        id={"checkout"}
-        style={{ display: "flex", flexDirection: "column", gap: "32px" }}
-        onSubmit={handleSubmit}
-      >
-        <SectionContainer>
-          <SectionLabel>Billing Details</SectionLabel>
-
-          <InputContainer error={errors.name}>
-            <LabelContainer error={errors.name}>
-              <InputLabel error={errors.name} htmlFor="name">
-                Name
-              </InputLabel>
-              {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.name}
-              value={data.name || ""}
-              onChange={handleChange("name")}
-              id={"name"}
-              name="name"
-              type="text"
-            />
-          </InputContainer>
-
-          <InputContainer>
-            <LabelContainer error={errors.email}>
-              <InputLabel error={errors.email} htmlFor="email">
-                Email Address
-              </InputLabel>
-              {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.email}
-              value={data.email || ""}
-              onChange={handleChange("email")}
-              name="email"
-              type="email"
-            />
-          </InputContainer>
-
-          <InputContainer>
-            <LabelContainer error={errors.phone}>
-              <InputLabel error={errors.phone} htmlFor="phone">
-                Phone Number
-              </InputLabel>
-              {errors.phone && <ErrorMessage>{errors.phone}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.phone}
-              value={data.phone || ""}
-              onChange={handleChange("phone")}
-              name="phone"
-              type="tel"
-            />
-          </InputContainer>
-        </SectionContainer>
-
-        <SectionContainer>
-          <SectionLabel>Shipping Info</SectionLabel>
-
-          <InputContainer>
-            <LabelContainer error={errors.address}>
-              <InputLabel error={errors.address} htmlFor="address">
-                Your Address
-              </InputLabel>
-              {errors.address && <ErrorMessage>{errors.address}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.address}
-              value={data.address || ""}
-              onChange={handleChange("address")}
-              name="address"
-              type="text"
-            />
-          </InputContainer>
-
-          <InputContainer>
-            <LabelContainer error={errors.zip}>
-              <InputLabel error={errors.zip} htmlFor="zip">
-                ZIP Code
-              </InputLabel>
-              {errors.zip && <ErrorMessage>{errors.zip}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.zip}
-              value={data.zip || ""}
-              onChange={handleChange("zip")}
-              id={"zip"}
-              name="zip"
-              type="text"
-            />
-          </InputContainer>
-
-          <InputContainer>
-            <LabelContainer error={errors.city}>
-              <InputLabel error={errors.city} htmlFor="city">
-                City
-              </InputLabel>
-              {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.city}
-              value={data.city || ""}
-              onChange={handleChange("city")}
-              name="city"
-              type="text"
-            />
-          </InputContainer>
-
-          <InputContainer>
-            <LabelContainer error={errors.country}>
-              <InputLabel error={errors.country} htmlFor="country">
-                Country
-              </InputLabel>
-              {errors.country && <ErrorMessage>{errors.country}</ErrorMessage>}
-            </LabelContainer>
-            <StyledInput
-              error={errors.country}
-              value={data.country || ""}
-              onChange={handleChange("country")}
-              name="country"
-              type="text"
-            />
-          </InputContainer>
-        </SectionContainer>
-
-        <SectionContainer>
-          <SectionLabel>Payment Details</SectionLabel>
-
-          <InputLabel>Payment Method</InputLabel>
-          <StyledInput
-            as="div"
-            style={{ display: "flex", gap: "16px", alignItems: "center" }}
-          >
-            {/*TODO: create custom radio selector*/}
-            <input
-              name="payment"
-              id="e-money"
-              value="e-money"
-              type="radio"
-              defaultChecked={true}
-              onClick={() => setState(true)}
-            />
-            <PaymentLabel htmlFor="e-money">e-Money</PaymentLabel>
-          </StyledInput>
-          <StyledInput
-            as="div"
-            style={{ display: "flex", gap: "16px", alignItems: "center" }}
-          >
-            <input
-              name="payment"
-              id="cash"
-              value="cash"
-              type="radio"
-              onClick={() => setState(false)}
-            />
-            <PaymentLabel htmlFor="cash">Cash on Delivery</PaymentLabel>
-          </StyledInput>
-        </SectionContainer>
-
-        <SectionContainer>
-          {state ? (
-            <>
+      <Form noValidate id={"checkout"} onSubmit={handleSubmit}>
+        {isTablet ? (
+          <>
+            <SectionLabel>Billing Details</SectionLabel>
+            <SectionContainer>
+              <FormColumn>
+                <InputContainer error={errors.name}>
+                  <LabelContainer error={errors.name}>
+                    <InputLabel error={errors.name} htmlFor="name">
+                      Name
+                    </InputLabel>
+                    {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+                  </LabelContainer>
+                  <StyledInput
+                    error={errors.name}
+                    value={data.name || ""}
+                    onChange={handleChange("name")}
+                    id={"name"}
+                    name="name"
+                    type="text"
+                  />
+                </InputContainer>
+                <InputContainer>
+                  <LabelContainer error={errors.phone}>
+                    <InputLabel error={errors.phone} htmlFor="phone">
+                      Phone Number
+                    </InputLabel>
+                    {errors.phone && (
+                      <ErrorMessage>{errors.phone}</ErrorMessage>
+                    )}
+                  </LabelContainer>
+                  <StyledInput
+                    error={errors.phone}
+                    value={data.phone || ""}
+                    onChange={handleChange("phone")}
+                    name="phone"
+                    type="tel"
+                  />
+                </InputContainer>
+              </FormColumn>
               <InputContainer>
-                <InputLabel htmlFor="number">e-Money Number</InputLabel>
-                <StyledInput name="number" type="text" />
+                <LabelContainer error={errors.email}>
+                  <InputLabel error={errors.email} htmlFor="email">
+                    Email Address
+                  </InputLabel>
+                  {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.email}
+                  value={data.email || ""}
+                  onChange={handleChange("email")}
+                  name="email"
+                  type="email"
+                />
               </InputContainer>
+            </SectionContainer>
 
-              <InputContainer>
-                <InputLabel htmlFor="pin">e-Money PIN</InputLabel>
-                <StyledInput name="pin" type="text" />
-              </InputContainer>
-            </>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "32px",
-                alignItems: "center",
-              }}
+            <SectionLabel>Shipping Info</SectionLabel>
+            <SectionContainer
+              style={{ display: "flex", flexDirection: "column" }}
             >
-              <img src="../../assets/cart/delivery.png" alt="" />
-              <p>
-                The ‘Cash on Delivery’ option enables you to pay in cash when
-                our delivery courier arrives at your residence. Just make sure
-                your address is correct so that your order will not be
-                cancelled.
-              </p>
-            </div>
-          )}
-        </SectionContainer>
-      </form>
+              <InputContainer style={{ width: "100%" }}>
+                <LabelContainer error={errors.address}>
+                  <InputLabel error={errors.address} htmlFor="address">
+                    Your Address
+                  </InputLabel>
+                  {errors.address && (
+                    <ErrorMessage>{errors.address}</ErrorMessage>
+                  )}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.address}
+                  value={data.address || ""}
+                  onChange={handleChange("address")}
+                  name="address"
+                  type="text"
+                />
+              </InputContainer>
+
+              <div style={{ display: "flex", gap: "16px" }}>
+                <FormColumn>
+                  <InputContainer>
+                    <LabelContainer error={errors.zip}>
+                      <InputLabel error={errors.zip} htmlFor="zip">
+                        ZIP Code
+                      </InputLabel>
+                      {errors.zip && <ErrorMessage>{errors.zip}</ErrorMessage>}
+                    </LabelContainer>
+                    <StyledInput
+                      error={errors.zip}
+                      value={data.zip || ""}
+                      onChange={handleChange("zip")}
+                      id={"zip"}
+                      name="zip"
+                      type="text"
+                    />
+                  </InputContainer>
+                  <InputContainer>
+                    <LabelContainer error={errors.country}>
+                      <InputLabel error={errors.country} htmlFor="country">
+                        Country
+                      </InputLabel>
+                      {errors.country && (
+                        <ErrorMessage>{errors.country}</ErrorMessage>
+                      )}
+                    </LabelContainer>
+                    <StyledInput
+                      error={errors.country}
+                      value={data.country || ""}
+                      onChange={handleChange("country")}
+                      name="country"
+                      type="text"
+                    />
+                  </InputContainer>
+                </FormColumn>
+                <InputContainer>
+                  <LabelContainer error={errors.city}>
+                    <InputLabel error={errors.city} htmlFor="city">
+                      City
+                    </InputLabel>
+                    {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
+                  </LabelContainer>
+                  <StyledInput
+                    error={errors.city}
+                    value={data.city || ""}
+                    onChange={handleChange("city")}
+                    name="city"
+                    type="text"
+                  />
+                </InputContainer>
+              </div>
+            </SectionContainer>
+            <SectionLabel>Payment Details</SectionLabel>
+            <SectionContainer>
+              <div style={{ display: "flex", width: "100%" }}>
+                <InputLabel style={{ width: "50%" }}>Payment Method</InputLabel>
+                <FormColumn style={{ width: "50%" }}>
+                  <StyledInput
+                    as="div"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <input
+                      name="payment"
+                      id="e-money"
+                      value="e-money"
+                      type="radio"
+                      defaultChecked={true}
+                      onClick={() => setState(true)}
+                    />
+                    <PaymentLabel htmlFor="e-money">e-Money</PaymentLabel>
+                  </StyledInput>
+                  <StyledInput
+                    as="div"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <input
+                      name="payment"
+                      id="cash"
+                      value="cash"
+                      type="radio"
+                      onClick={() => setState(false)}
+                    />
+                    <PaymentLabel htmlFor="cash">Cash on Delivery</PaymentLabel>
+                  </StyledInput>
+                </FormColumn>
+              </div>
+            </SectionContainer>
+
+            <SectionContainer>
+              {state ? (
+                <>
+                  <InputContainer>
+                    <InputLabel htmlFor="number">e-Money Number</InputLabel>
+                    <StyledInput name="number" type="text" />
+                  </InputContainer>
+
+                  <InputContainer>
+                    <InputLabel htmlFor="pin">e-Money PIN</InputLabel>
+                    <StyledInput name="pin" type="text" />
+                  </InputContainer>
+                </>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "32px",
+                    alignItems: "center",
+                  }}
+                >
+                  <img src="../../assets/cart/delivery.png" alt="" />
+                  <p>
+                    The ‘Cash on Delivery’ option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
+                </div>
+              )}
+            </SectionContainer>
+          </>
+        ) : (
+          <>
+            <SectionContainer>
+              <SectionLabel>Billing Details</SectionLabel>
+
+              <InputContainer error={errors.name}>
+                <LabelContainer error={errors.name}>
+                  <InputLabel error={errors.name} htmlFor="name">
+                    Name
+                  </InputLabel>
+                  {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.name}
+                  value={data.name || ""}
+                  onChange={handleChange("name")}
+                  id={"name"}
+                  name="name"
+                  type="text"
+                />
+              </InputContainer>
+
+              <InputContainer>
+                <LabelContainer error={errors.email}>
+                  <InputLabel error={errors.email} htmlFor="email">
+                    Email Address
+                  </InputLabel>
+                  {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.email}
+                  value={data.email || ""}
+                  onChange={handleChange("email")}
+                  name="email"
+                  type="email"
+                />
+              </InputContainer>
+
+              <InputContainer>
+                <LabelContainer error={errors.phone}>
+                  <InputLabel error={errors.phone} htmlFor="phone">
+                    Phone Number
+                  </InputLabel>
+                  {errors.phone && <ErrorMessage>{errors.phone}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.phone}
+                  value={data.phone || ""}
+                  onChange={handleChange("phone")}
+                  name="phone"
+                  type="tel"
+                />
+              </InputContainer>
+            </SectionContainer>
+
+            <SectionContainer>
+              <SectionLabel>Shipping Info</SectionLabel>
+
+              <InputContainer>
+                <LabelContainer error={errors.address}>
+                  <InputLabel error={errors.address} htmlFor="address">
+                    Your Address
+                  </InputLabel>
+                  {errors.address && (
+                    <ErrorMessage>{errors.address}</ErrorMessage>
+                  )}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.address}
+                  value={data.address || ""}
+                  onChange={handleChange("address")}
+                  name="address"
+                  type="text"
+                />
+              </InputContainer>
+
+              <InputContainer>
+                <LabelContainer error={errors.zip}>
+                  <InputLabel error={errors.zip} htmlFor="zip">
+                    ZIP Code
+                  </InputLabel>
+                  {errors.zip && <ErrorMessage>{errors.zip}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.zip}
+                  value={data.zip || ""}
+                  onChange={handleChange("zip")}
+                  id={"zip"}
+                  name="zip"
+                  type="text"
+                />
+              </InputContainer>
+
+              <InputContainer>
+                <LabelContainer error={errors.city}>
+                  <InputLabel error={errors.city} htmlFor="city">
+                    City
+                  </InputLabel>
+                  {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.city}
+                  value={data.city || ""}
+                  onChange={handleChange("city")}
+                  name="city"
+                  type="text"
+                />
+              </InputContainer>
+
+              <InputContainer>
+                <LabelContainer error={errors.country}>
+                  <InputLabel error={errors.country} htmlFor="country">
+                    Country
+                  </InputLabel>
+                  {errors.country && (
+                    <ErrorMessage>{errors.country}</ErrorMessage>
+                  )}
+                </LabelContainer>
+                <StyledInput
+                  error={errors.country}
+                  value={data.country || ""}
+                  onChange={handleChange("country")}
+                  name="country"
+                  type="text"
+                />
+              </InputContainer>
+            </SectionContainer>
+
+            <SectionContainer>
+              <SectionLabel>Payment Details</SectionLabel>
+
+              <InputLabel>Payment Method</InputLabel>
+              <StyledInput
+                as="div"
+                style={{ display: "flex", gap: "16px", alignItems: "center" }}
+              >
+                {/*TODO: create custom radio selector*/}
+                <input
+                  name="payment"
+                  id="e-money"
+                  value="e-money"
+                  type="radio"
+                  defaultChecked={true}
+                  onClick={() => setState(true)}
+                />
+                <PaymentLabel htmlFor="e-money">e-Money</PaymentLabel>
+              </StyledInput>
+              <StyledInput
+                as="div"
+                style={{ display: "flex", gap: "16px", alignItems: "center" }}
+              >
+                <input
+                  name="payment"
+                  id="cash"
+                  value="cash"
+                  type="radio"
+                  onClick={() => setState(false)}
+                />
+                <PaymentLabel htmlFor="cash">Cash on Delivery</PaymentLabel>
+              </StyledInput>
+            </SectionContainer>
+
+            <SectionContainer>
+              {state ? (
+                <>
+                  <InputContainer>
+                    <InputLabel htmlFor="number">e-Money Number</InputLabel>
+                    <StyledInput name="number" type="text" />
+                  </InputContainer>
+
+                  <InputContainer>
+                    <InputLabel htmlFor="pin">e-Money PIN</InputLabel>
+                    <StyledInput name="pin" type="text" />
+                  </InputContainer>
+                </>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "32px",
+                    alignItems: "center",
+                  }}
+                >
+                  <img src="../../assets/cart/delivery.png" alt="" />
+                  <p>
+                    The ‘Cash on Delivery’ option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
+                </div>
+              )}
+            </SectionContainer>
+          </>
+        )}
+      </Form>
     </FormContainer>
   );
 };

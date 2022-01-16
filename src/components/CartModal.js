@@ -24,6 +24,10 @@ export const ModalContainer = styled.div`
   border-radius: 8px;
   margin: 24px;
   gap: 32px;
+  @media (min-width: 768px) {
+    width: 377px;
+    margin-left: auto;
+  }
 `;
 
 const ModalHeader = styled.header`
@@ -84,27 +88,32 @@ const RemoveAllButton = styled.button`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  /* identical to box height, or 167% */
   background: none;
   border: none;
   text-decoration-line: underline;
-
   color: #000000;
-
   mix-blend-mode: normal;
   opacity: 0.5;
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+
+  :hover {
+    color: #d87d4a;
+  }
 `;
+export const calculateTotal = (contents) => {
+  let total = 0;
+  for (let i of contents) {
+    const itemTotal = i.price * i.quantity;
+    total += itemTotal;
+  }
+  return total;
+};
+
 const CartModal = NiceModal.create(() => {
   const modal = useModal();
   const context = useContext(ShopContext);
-  const calculateTotal = () => {
-    let total = 0;
-    for (let i of context.cart) {
-      const itemTotal = i.price * i.quantity;
-      total += itemTotal;
-    }
-    return total;
-  };
+
   const items = context.cart.map((item) => (
     <CartItem
       key={item.id}
@@ -128,7 +137,7 @@ const CartModal = NiceModal.create(() => {
         }}
       >
         <ModalHeader>
-          <ModalHeaderLabel>Cart({context.cart.length})</ModalHeaderLabel>
+          <ModalHeaderLabel>Cart ({context.cart.length})</ModalHeaderLabel>
           <RemoveAllButton onClick={context.clearCart.bind(this)}>
             Remove all
           </RemoveAllButton>
@@ -137,7 +146,7 @@ const CartModal = NiceModal.create(() => {
         {items}
         <TotalContainer>
           <TotalLabel>TOTAL</TotalLabel>
-          <TotalPrice>{`$ ${calculateTotal()}`}</TotalPrice>
+          <TotalPrice>{`$ ${calculateTotal(context.cart)}`}</TotalPrice>
         </TotalContainer>
         <CheckoutButton
           primary={"true"}

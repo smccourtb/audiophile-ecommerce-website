@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import ProductButton from "../../components/ProductButton";
+import { useMediaQuery } from "react-responsive";
 
 const OtherProductsContainer = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 56px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 11px;
+  }
 `;
 
 const ProductContainer = styled.div`
@@ -39,12 +44,9 @@ const Header = styled.h5`
   font-weight: bold;
   font-size: 24px;
   line-height: 36px;
-  /* identical to box height, or 150% */
-
   text-align: center;
   letter-spacing: 0.857143px;
   text-transform: uppercase;
-
   color: #000000;
 `;
 
@@ -53,17 +55,23 @@ const ProductImage = styled.img`
   width: 100%;
 `;
 const OtherProducts = ({ others }) => {
-  const products = others.map((product, idx) => (
-    <ProductContainer key={idx}>
-      <ProductImage src={product.image.mobile} />
-      <ProductName>{product.name}</ProductName>
-      <ProductButton
-        path={product.slug}
-        text={"See Product"}
-        primary={"true"}
-      />
-    </ProductContainer>
-  ));
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+
+  const products = others.map((product, idx) => {
+    const { mobile, tablet, desktop } = { ...product.image };
+    return (
+      <ProductContainer key={idx}>
+        <ProductImage src={isDesktop ? desktop : isTablet ? tablet : mobile} />
+        <ProductName>{product.name}</ProductName>
+        <ProductButton
+          path={product.slug}
+          text={"See Product"}
+          primary={"true"}
+        />
+      </ProductContainer>
+    );
+  });
 
   return (
     <OtherProductsContainer>
