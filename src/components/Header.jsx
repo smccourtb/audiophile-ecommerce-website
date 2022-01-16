@@ -59,12 +59,11 @@ const Header = () => {
   const showCartModal = () => {
     // Show a modal with arguments passed to the component as props
     NiceModal.show(CartModal);
-    document.querySelector("body").style.overflow = "hidden";
+    // document.querySelector("body").style.overflow = "hidden";
   };
   const showMenuModal = () => {
     // Show a modal with arguments passed to the component as props
     NiceModal.show(DropDownMenu);
-    // document.querySelector("body").style.overflow = "hidden";
   };
 
   return (

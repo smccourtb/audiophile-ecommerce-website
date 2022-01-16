@@ -24,6 +24,7 @@ export const ModalContainer = styled.div`
   border-radius: 8px;
   margin: 24px;
   gap: 32px;
+  max-height: 75%;
   @media (min-width: 768px) {
     width: 377px;
     margin-left: auto;
@@ -143,7 +144,16 @@ const CartModal = NiceModal.create(() => {
           </RemoveAllButton>
         </ModalHeader>
 
-        {items}
+        <div
+          style={{
+            overflow: "scroll",
+            gap: "32px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {items}
+        </div>
         <TotalContainer>
           <TotalLabel>TOTAL</TotalLabel>
           <TotalPrice>{`$ ${calculateTotal(context.cart).toLocaleString(

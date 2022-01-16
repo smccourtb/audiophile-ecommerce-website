@@ -7,6 +7,7 @@ const DropDownContainer = styled(ModalContainer)`
   margin: 0;
   border-radius: 0 0 8px 8px;
   width: 100%;
+  overflow: scroll;
   @media (min-width: 768px) {
     padding: 56px 40px 67px;
   }

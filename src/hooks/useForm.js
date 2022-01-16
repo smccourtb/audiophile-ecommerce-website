@@ -8,7 +8,7 @@ export const useForm = (options) => {
   const showCartModal = () => {
     // Show a modal with arguments passed to the component as props
     NiceModal.show(ConfirmationModal);
-    document.querySelector("body").style.overflow = "hidden";
+    // document.querySelector("body").style.overflow = "hidden";
   };
   const handleChange = (key, sanitizeFn) => (e) => {
     const value = sanitizeFn ? sanitizeFn(e.target.value) : e.target.value;
