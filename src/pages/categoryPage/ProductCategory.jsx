@@ -23,7 +23,7 @@ const CategoryImage = styled(ProductImage)`
     height: 352px;
   }
   @media (min-width: 1024px) {
-    height: 100%;
+    height: 560px;
   }
 `;
 

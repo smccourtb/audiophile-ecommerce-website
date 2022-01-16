@@ -164,7 +164,6 @@ const ProductDetail = ({ data }) => {
                 >
                   Add to Cart
                 </StyledButton>
-                {/* TODO: send amount to shopping cart when its created*/}
               </ButtonContainer>
             </TextContainer>
           </ProductContainer>
