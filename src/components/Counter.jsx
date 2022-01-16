@@ -26,6 +26,11 @@ const Button = styled.button`
   mix-blend-mode: normal;
   opacity: 0.25;
   cursor: pointer;
+  transition: color 0.2s ease-out;
+
+  :hover {
+    color: #d87d4a;
+  }
 `;
 
 const Number = styled.p`
