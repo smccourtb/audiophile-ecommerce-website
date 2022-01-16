@@ -168,6 +168,7 @@ const SeeProductButton = styled(Button)`
   color: #ffffff;
   transition: background-color 0.2s ease-out;
   border: none;
+  cursor: pointer;
 
   :hover {
     transition: background-color 0.2s ease-out;

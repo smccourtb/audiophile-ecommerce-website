@@ -12,6 +12,8 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: 700;
   border: none;
+  cursor: pointer;
+
   transition: all 0.2s ease-out;
   border: ${({ primary }) => (primary ? "none" : "1px solid #000000")};
 
@@ -37,6 +39,7 @@ export const StyledButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   :hover {
     background-color: ${({ primary }) => (primary ? "#fbaf85" : "#000000")};
@@ -78,6 +81,7 @@ export const StyledLink = styled(Link)`
   font-size: 13px;
   font-weight: 700;
   color: #ffffff;
+  transition: color 0.2s ease-out;
 
   :hover,
   :visited,
