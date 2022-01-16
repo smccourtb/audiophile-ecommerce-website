@@ -121,7 +121,7 @@ const ComponentsHeader = styled.h4`
     line-height: 36px;
     letter-spacing: 1.14286px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
   }
 `;
