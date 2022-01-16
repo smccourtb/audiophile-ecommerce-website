@@ -88,6 +88,7 @@ const ProductDescription = styled.p`
   @media (min-width: 1024px) {
     padding-bottom: 40px;
     text-align: left;
+    padding-right: 50px;
   }
 `;
 
