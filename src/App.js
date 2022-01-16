@@ -9,7 +9,6 @@ import CategoryPage from "./pages/CategoryPage";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 
-import { ContentContainer } from "./styles/shared-styles";
 import data from "./data.json";
 
 const headphoneData = data
