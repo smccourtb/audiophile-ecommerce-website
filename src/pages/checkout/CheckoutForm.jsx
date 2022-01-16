@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import CustomRadioButton from "./checkoutForm/CustomRadioButton";
 
 const FormContainer = styled.div`
   display: flex;
@@ -62,17 +63,17 @@ const InputContainer = styled.div`
   color: ${({ error }) => error && "#CD2C2C"};
 `;
 
-const PaymentLabel = styled.label`
+export const PaymentLabel = styled.label`
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 19px;
   letter-spacing: -0.25px;
-
+  cursor: pointer;
   color: #000000;
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 8px;
@@ -347,41 +348,20 @@ const CheckoutForm = () => {
               <div style={{ display: "flex", width: "100%" }}>
                 <InputLabel style={{ width: "50%" }}>Payment Method</InputLabel>
                 <FormColumn style={{ width: "50%" }}>
-                  <StyledInput
-                    as="div"
-                    style={{
-                      display: "flex",
-                      gap: "16px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <input
-                      name="payment"
-                      id="e-money"
-                      value="e-money"
-                      type="radio"
-                      defaultChecked={true}
-                      onClick={() => setState(true)}
-                    />
-                    <PaymentLabel htmlFor="e-money">e-Money</PaymentLabel>
-                  </StyledInput>
-                  <StyledInput
-                    as="div"
-                    style={{
-                      display: "flex",
-                      gap: "16px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <input
-                      name="payment"
-                      id="cash"
-                      value="cash"
-                      type="radio"
-                      onClick={() => setState(false)}
-                    />
-                    <PaymentLabel htmlFor="cash">Cash on Delivery</PaymentLabel>
-                  </StyledInput>
+                  <CustomRadioButton
+                    name="payment"
+                    value="e-money"
+                    handleChange={() => setState(true)}
+                    isChecked={state}
+                    label={"e-Money"}
+                  />
+                  <CustomRadioButton
+                    name="payment"
+                    value="cash"
+                    handleChange={() => setState(false)}
+                    isChecked={!state}
+                    label={"Cash on Delivery"}
+                  />
                 </FormColumn>
               </div>
             </SectionContainer>
@@ -550,34 +530,20 @@ const CheckoutForm = () => {
               <SectionLabel>Payment Details</SectionLabel>
 
               <InputLabel>Payment Method</InputLabel>
-              <StyledInput
-                as="div"
-                style={{ display: "flex", gap: "16px", alignItems: "center" }}
-              >
-                {/*TODO: create custom radio selector*/}
-                <input
-                  name="payment"
-                  id="e-money"
-                  value="e-money"
-                  type="radio"
-                  defaultChecked={true}
-                  onClick={() => setState(true)}
-                />
-                <PaymentLabel htmlFor="e-money">e-Money</PaymentLabel>
-              </StyledInput>
-              <StyledInput
-                as="div"
-                style={{ display: "flex", gap: "16px", alignItems: "center" }}
-              >
-                <input
-                  name="payment"
-                  id="cash"
-                  value="cash"
-                  type="radio"
-                  onClick={() => setState(false)}
-                />
-                <PaymentLabel htmlFor="cash">Cash on Delivery</PaymentLabel>
-              </StyledInput>
+              <CustomRadioButton
+                name="payment"
+                value="e-money"
+                handleChange={() => setState(true)}
+                isChecked={state}
+                label={"e-Money"}
+              />
+              <CustomRadioButton
+                name="payment"
+                value="cash"
+                handleChange={() => setState(false)}
+                isChecked={!state}
+                label={"Cash on Delivery"}
+              />
             </SectionContainer>
 
             <SectionContainer>
