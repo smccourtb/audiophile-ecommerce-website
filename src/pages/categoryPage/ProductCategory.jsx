@@ -12,11 +12,18 @@ import { useMediaQuery } from "react-responsive";
 
 const CategoryContainer = styled(ProductContainer)`
   flex-direction: column;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 125px;
+  }
 `;
 
 const CategoryImage = styled(ProductImage)`
   @media (min-width: 768px) {
     height: 352px;
+  }
+  @media (min-width: 1024px) {
+    height: 100%;
   }
 `;
 
@@ -25,6 +32,11 @@ const CategoryTextContainer = styled(TextContainer)`
   align-items: center;
   @media (min-width: 768px) {
     padding: 0 60px;
+  }
+  @media (min-width: 1024px) {
+    padding: 0;
+    text-align: left;
+    align-items: flex-start;
   }
 `;
 
@@ -35,11 +47,12 @@ const CategoryName = styled(ProductName)`
     font-weight: bold;
     font-size: 40px;
     line-height: 44px;
-    /* or 110% */
     letter-spacing: 1.42857px;
     text-transform: uppercase;
-
     color: #000000;
+  }
+  @media (min-width: 1024px) {
+    padding: 0;
   }
 `;
 
