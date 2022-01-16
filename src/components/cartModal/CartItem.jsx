@@ -83,7 +83,7 @@ const CartItem = ({ id, quantity, name, price, slug, checkout }) => {
       <Image src={`./assets/cart/image-${slug}.jpg`} alt={name} />
       <InfoContainer>
         <Name>{shortenProductName(name)}</Name>
-        <Price>{`$ ${price}`}</Price>
+        <Price>{`$ ${price.toLocaleString("en-US")}`}</Price>
       </InfoContainer>
       {checkout ? (
         <QuantityStyle>{`${quantity}x`}</QuantityStyle>

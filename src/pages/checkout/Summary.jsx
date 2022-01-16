@@ -92,7 +92,7 @@ const Summary = () => {
       <Subtotal>
         <PriceItem>
           <PriceLabel>TOTAL</PriceLabel>
-          <Price>{`$ ${calculateTotalPrice()}`}</Price>
+          <Price>{`$ ${calculateTotalPrice().toLocaleString("en-US")}`}</Price>
         </PriceItem>
         <PriceItem>
           <PriceLabel>SHIPPING</PriceLabel>
@@ -100,12 +100,18 @@ const Summary = () => {
         </PriceItem>
         <PriceItem>
           <PriceLabel>VAT (INCLUDED)</PriceLabel>
-          <Price>$ {(calculateTotalPrice() * 0.2).toFixed(2)}</Price>
+          <Price>
+            {`$ ${(calculateTotalPrice() * 0.2).toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+            })}`}
+          </Price>
         </PriceItem>
       </Subtotal>
       <PriceItem>
         <PriceLabel>GRAND TOTAL</PriceLabel>
-        <Price orange>$ {calculateTotalPrice() + 50}</Price>
+        <Price orange>
+          $ {(calculateTotalPrice() + 50).toLocaleString("en-US")}
+        </Price>
       </PriceItem>
       <CheckoutButton as="button" primary="true" form="checkout" type="submit">
         CONTINUE & PAY

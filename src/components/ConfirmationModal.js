@@ -215,7 +215,9 @@ export const ConfirmationModal = NiceModal.create(() => {
             </div>
             <PriceContainer>
               <TotalHeader>GRAND TOTAL</TotalHeader>
-              <TotalPrice>{`$ ${calculateTotal(context.cart)}`}</TotalPrice>
+              <TotalPrice>{`$ ${calculateTotal(context.cart).toLocaleString(
+                "USE-en"
+              )}`}</TotalPrice>
             </PriceContainer>
           </ColumnFlexContainer>
         ) : (

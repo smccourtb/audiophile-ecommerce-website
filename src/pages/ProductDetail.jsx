@@ -149,7 +149,7 @@ const ProductDetail = ({ data }) => {
               {data.new && <NewProduct>New Product</NewProduct>}
               <ProductName>{data.name}</ProductName>
               <ProductDescription>{data.description}</ProductDescription>
-              <Price>{`$ ${data.price}`}</Price>{" "}
+              <Price>{`$ ${data.price.toLocaleString("en-US")}`}</Price>{" "}
               <ButtonContainer>
                 <Counter
                   increment={increment}

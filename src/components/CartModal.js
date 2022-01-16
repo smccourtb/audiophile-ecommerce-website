@@ -146,7 +146,9 @@ const CartModal = NiceModal.create(() => {
         {items}
         <TotalContainer>
           <TotalLabel>TOTAL</TotalLabel>
-          <TotalPrice>{`$ ${calculateTotal(context.cart)}`}</TotalPrice>
+          <TotalPrice>{`$ ${calculateTotal(context.cart).toLocaleString(
+            "en-US"
+          )}`}</TotalPrice>
         </TotalContainer>
         <CheckoutButton
           primary={"true"}
