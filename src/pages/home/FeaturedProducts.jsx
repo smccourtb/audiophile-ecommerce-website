@@ -88,6 +88,7 @@ const ProductDescription = styled.p`
   @media (min-width: 1024px) {
     padding-bottom: 40px;
     text-align: left;
+    padding-right: 50px;
   }
 `;
 
@@ -168,6 +169,7 @@ const SeeProductButton = styled(Button)`
   color: #ffffff;
   transition: background-color 0.2s ease-out;
   border: none;
+  cursor: pointer;
 
   :hover {
     transition: background-color 0.2s ease-out;

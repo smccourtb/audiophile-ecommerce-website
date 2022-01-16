@@ -11,6 +11,11 @@ const SummaryContainer = styled.div`
   flex-direction: column;
   gap: 32px;
   padding: 24px;
+  @media (min-width: 1024px) {
+    width: 33%;
+    padding: 32px;
+    height: 50%;
+  }
 `;
 
 const SummaryTitle = styled.h3`
@@ -18,11 +23,8 @@ const SummaryTitle = styled.h3`
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  /* identical to box height */
-
   letter-spacing: 1.28571px;
   text-transform: uppercase;
-
   color: #000000;
 `;
 
@@ -43,10 +45,7 @@ const PriceLabel = styled.p`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  /* identical to box height, or 167% */
-
   color: #000000;
-
   mix-blend-mode: normal;
   opacity: 0.5;
 `;
@@ -56,11 +55,8 @@ const Price = styled.p`
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  /* identical to box height */
-
   text-align: right;
   text-transform: uppercase;
-
   color: ${({ orange }) => (orange ? "#D87D4A" : "#000000")};
 `;
 

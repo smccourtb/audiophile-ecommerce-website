@@ -26,6 +26,10 @@ const ProductDetailContainer = styled(ContentContainer)`
   @media (min-width: 768px) {
     padding: 33px 39.5px 120px 39px;
   }
+  @media (min-width: 1024px) {
+    padding: 79px 165px 160px;
+    gap: 160px;
+  }
 `;
 
 const Price = styled.p`
@@ -33,12 +37,12 @@ const Price = styled.p`
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  /* identical to box height */
-
   letter-spacing: 1.28571px;
   text-transform: uppercase;
-
   color: #000000;
+  @media (min-width: 1024px) {
+    padding-bottom: 15px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -51,6 +55,10 @@ const FeaturesContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   margin: -32px 0 -7px;
+  @media (min-width: 1024px) {
+    margin: 0;
+    gap: 32px;
+  }
 `;
 
 const IncludesContainer = styled.div`
@@ -63,6 +71,11 @@ const IncludesContainer = styled.div`
     width: 100%;
     margin-bottom: 0;
   }
+  @media (min-width: 1024px) {
+    flex-direction: column;
+    gap: 32px;
+    margin-left: -90px;
+  }
 `;
 
 const FeaturesHeader = styled.h3`
@@ -73,6 +86,11 @@ const FeaturesHeader = styled.h3`
   letter-spacing: 0.857143px;
   text-transform: uppercase;
   color: #000000;
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14286px;
+  }
 `;
 
 const FeatureDescription = styled.p`
@@ -84,6 +102,9 @@ const FeatureDescription = styled.p`
   mix-blend-mode: normal;
   opacity: 0.5;
   white-space: pre-wrap;
+  @media (min-width: 1024px) {
+    width: 73%;
+  }
 `;
 
 const ComponentsHeader = styled.h4`
@@ -100,6 +121,14 @@ const ComponentsHeader = styled.h4`
     line-height: 36px;
     letter-spacing: 1.14286px;
   }
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+`;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 `;
 
 const ProductDetail = ({ data }) => {
@@ -139,14 +168,29 @@ const ProductDetail = ({ data }) => {
               </ButtonContainer>
             </TextContainer>
           </ProductContainer>
-          <FeaturesContainer>
-            <FeaturesHeader>FEATURES</FeaturesHeader>
-            <FeatureDescription>{data.features}</FeatureDescription>
-          </FeaturesContainer>
-          <IncludesContainer>
-            <ComponentsHeader>IN THE BOX</ComponentsHeader>
-            <ProductComponents items={data.includes} />
-          </IncludesContainer>
+          {isDesktop ? (
+            <Row>
+              <FeaturesContainer>
+                <FeaturesHeader>FEATURES</FeaturesHeader>
+                <FeatureDescription>{data.features}</FeatureDescription>
+              </FeaturesContainer>
+              <IncludesContainer>
+                <ComponentsHeader>IN THE BOX</ComponentsHeader>
+                <ProductComponents items={data.includes} />
+              </IncludesContainer>
+            </Row>
+          ) : (
+            <>
+              <FeaturesContainer>
+                <FeaturesHeader>FEATURES</FeaturesHeader>
+                <FeatureDescription>{data.features}</FeatureDescription>
+              </FeaturesContainer>
+              <IncludesContainer>
+                <ComponentsHeader>IN THE BOX</ComponentsHeader>
+                <ProductComponents items={data.includes} />
+              </IncludesContainer>
+            </>
+          )}
           <Gallery images={data.gallery} />
           <OtherProducts others={data.others} />
           <CategoryLinks />

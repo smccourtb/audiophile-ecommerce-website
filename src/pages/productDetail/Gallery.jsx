@@ -11,6 +11,11 @@ const GalleryContainer = styled.div`
     flex-direction: row;
     gap: 20px;
   }
+  @media (min-width: 1024px) {
+    height: unset;
+    flex-direction: row;
+    gap: 20px;
+  }
 `;
 
 const Image = styled.img`

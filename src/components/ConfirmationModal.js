@@ -107,6 +107,9 @@ const PriceContainer = styled.div`
     padding: 41px 73px 42px 24px;
     margin: 0;
   }
+  @media (min-width: 1024px) {
+    padding: 41px 61px 42px 32px;
+  }
 `;
 
 const TotalPrice = styled.p`
@@ -128,6 +131,9 @@ const ExtraItemsContainer = styled.div`
   @media (min-width: 768px) {
     padding: 25px 0 0 0;
   }
+  @media (min-width: 1024px) {
+    padding: 12px 0 0;
+  }
 `;
 
 const ExtraItemsText = styled.p`
@@ -148,10 +154,16 @@ const ConfirmationModalContainer = styled(ModalContainer)`
     width: 100%;
     margin: 0;
   }
+  @media (min-width: 1024px) {
+    gap: 24px;
+  }
 `;
 
 const ConfirmationModalBackground = styled(ModalBackground)`
   padding: 90px 114px 0;
+  @media (min-width: 1024px) {
+    padding: 125px 450px 0;
+  }
 `;
 
 export const ConfirmationModal = NiceModal.create(() => {
@@ -203,7 +215,7 @@ export const ConfirmationModal = NiceModal.create(() => {
             </div>
             <PriceContainer>
               <TotalHeader>GRAND TOTAL</TotalHeader>
-              <TotalPrice>$ 5,446</TotalPrice>
+              <TotalPrice>{`$ ${calculateTotal(context.cart)}`}</TotalPrice>
             </PriceContainer>
           </ColumnFlexContainer>
         ) : (
@@ -222,7 +234,7 @@ export const ConfirmationModal = NiceModal.create(() => {
             )}
             <PriceContainer>
               <TotalHeader>GRAND TOTAL</TotalHeader>
-              <TotalPrice>{calculateTotal(context.cart)}</TotalPrice>
+              <TotalPrice>{`$ ${calculateTotal(context.cart)}`}</TotalPrice>
             </PriceContainer>
           </ColumnFlexContainer>
         )}

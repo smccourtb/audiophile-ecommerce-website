@@ -11,6 +11,10 @@ const CategoriesContainer = styled(ContentContainer)`
   @media (min-width: 768px) {
     padding: 120px 40px 120px 39px;
   }
+  @media (min-width: 1024px) {
+    padding: 160px 165px;
+    gap: 160px;
+  }
 `;
 const CategoryPage = ({ data }) => {
   useLayoutEffect(() => {
