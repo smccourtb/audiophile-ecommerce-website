@@ -127,6 +127,7 @@ export const ProductContainer = styled.article`
     flex-direction: row;
     height: 560px;
     gap: 125px;
+    margin-top: -84px;
   }
 `;
 
@@ -163,6 +164,11 @@ export const NewProduct = styled.h2`
     line-height: 16px;
     letter-spacing: 8.57143px;
   }
+  @media (min-width: 1024px) {
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 10px;
+  }
 `;
 
 export const ProductName = styled.h2`
@@ -187,10 +193,6 @@ export const ProductDescription = styled.p`
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.5;
-
-  @media (min-width: 1024px) {
-    padding-bottom: 16px;
-  }
 `;
 
 export const ProductImage = styled.img`
@@ -200,7 +202,7 @@ export const ProductImage = styled.img`
     height: 480px;
   }
   @media (min-width: 1024px) {
-    width: 48.7%;
+    height: 560px;
   }
 `;
 

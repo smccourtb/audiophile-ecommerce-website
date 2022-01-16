@@ -6,6 +6,9 @@ const OtherProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  @media (min-width: 1024px) {
+    gap: 64px;
+  }
 `;
 
 const ProductsContainer = styled.div`
@@ -15,6 +18,9 @@ const ProductsContainer = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 11px;
+  }
+  @media (min-width: 1024px) {
+    gap: 30px;
   }
 `;
 
@@ -48,6 +54,12 @@ const Header = styled.h5`
   letter-spacing: 0.857143px;
   text-transform: uppercase;
   color: #000000;
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    letter-spacing: 1.14286px;
+
+    color: #000000;
+  }
 `;
 
 const ProductImage = styled.img`
