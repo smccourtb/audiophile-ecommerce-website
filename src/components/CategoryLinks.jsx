@@ -1,7 +1,4 @@
 import CategoryLink from "./categoryLinks/CategoryLink";
-import HeadphoneImage from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import SpeakerImage from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import EarphoneImage from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import styled from "styled-components/macro";
 
 const CategoryContainer = styled.div`
@@ -23,17 +20,21 @@ const CategoryLinks = () => {
   return (
     <CategoryContainer>
       <CategoryLink
-        image={HeadphoneImage}
+        image={
+          "../../assets/shared/desktop/image-category-thumbnail-headphones.png"
+        }
         title={"Headphones"}
         target={"/headphones"}
       />
       <CategoryLink
-        image={SpeakerImage}
+        image={"../assets/shared/desktop/image-category-thumbnail-speakers.png"}
         title={"Speakers"}
         target={"/speakers"}
       />
       <CategoryLink
-        image={EarphoneImage}
+        image={
+          "../assets/shared/desktop/image-category-thumbnail-earphones.png"
+        }
         title={"Earphones"}
         target={"/earphones"}
       />

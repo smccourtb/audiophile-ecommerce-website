@@ -1,8 +1,4 @@
 import styled from "styled-components/macro";
-import Logo from "../assets/shared/desktop/logo.svg";
-import FacebookIcon from "../assets/shared/desktop/icon-facebook.svg";
-import InstagramIcon from "../assets/shared/desktop/icon-instagram.svg";
-import TwitterIcon from "../assets/shared/desktop/icon-twitter.svg";
 import Navigation from "./Navigation";
 import { useMediaQuery } from "react-responsive";
 
@@ -83,7 +79,7 @@ const Footer = () => {
       {/*Mobile Layout*/}
       {isMobile && (
         <>
-          <LogoContainer src={Logo} alt="logo" />
+          <LogoContainer src={"../assets/shared/desktop/logo.svg"} alt="logo" />
           <Navigation footer />
           <DescriptionText>
             Audiophile is an all in one stop to fulfill your audio needs. We're
@@ -95,9 +91,19 @@ const Footer = () => {
             Copyright 2021. All Rights Reserved
           </DescriptionText>
           <SocialMediaGroup>
-            <SocialImage src={FacebookIcon} alt={"facebook"} />
-            <SocialImage small src={TwitterIcon} alt={"twitter"} />
-            <SocialImage src={InstagramIcon} alt={"instagram"} />
+            <SocialImage
+              src={"../assets/shared/desktop/icon-facebook.svg"}
+              alt={"facebook"}
+            />
+            <SocialImage
+              small
+              src={"../assets/shared/desktop/icon-twitter.svg"}
+              alt={"twitter"}
+            />
+            <SocialImage
+              src={"../assets/shared/desktop/icon-instagram.svg"}
+              alt={"instagram"}
+            />
           </SocialMediaGroup>
         </>
       )}
@@ -106,7 +112,7 @@ const Footer = () => {
       {isTablet && (
         <>
           {" "}
-          <LogoContainer src={Logo} alt="logo" />
+          <LogoContainer src={"../assets/shared/desktop/logo.svg"} alt="logo" />
           <Navigation footer />
           <DescriptionText>
             Audiophile is an all in one stop to fulfill your audio needs. We're
@@ -126,9 +132,19 @@ const Footer = () => {
               Copyright 2021. All Rights Reserved
             </DescriptionText>
             <SocialMediaGroup>
-              <SocialImage src={FacebookIcon} alt={"facebook"} />
-              <SocialImage small src={TwitterIcon} alt={"twitter"} />
-              <SocialImage src={InstagramIcon} alt={"instagram"} />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-facebook.svg"}
+                alt={"facebook"}
+              />
+              <SocialImage
+                small
+                src={"../assets/shared/desktop/icon-twitter.svg"}
+                alt={"twitter"}
+              />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-instagram.svg"}
+                alt={"instagram"}
+              />
             </SocialMediaGroup>
           </div>
         </>
@@ -145,7 +161,10 @@ const Footer = () => {
               alignItems: "flex-start",
             }}
           >
-            <LogoContainer src={Logo} alt="logo" />
+            <LogoContainer
+              src={"../assets/shared/desktop/logo.svg"}
+              alt="logo"
+            />
             <DescriptionText>
               Audiophile is an all in one stop to fulfill your audio needs.
               We're a small team of music lovers and sound specialists who are
@@ -166,9 +185,19 @@ const Footer = () => {
           >
             <Navigation footer />
             <SocialMediaGroup>
-              <SocialImage src={FacebookIcon} alt={"facebook"} />
-              <SocialImage small src={TwitterIcon} alt={"twitter"} />
-              <SocialImage src={InstagramIcon} alt={"instagram"} />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-facebook.svg"}
+                alt={"facebook"}
+              />
+              <SocialImage
+                small
+                src={"../assets/shared/desktop/icon-twitter.svg"}
+                alt={"twitter"}
+              />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-instagram.svg"}
+                alt={"instagram"}
+              />
             </SocialMediaGroup>
           </div>
         </>

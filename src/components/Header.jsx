@@ -1,6 +1,3 @@
-import Hamburger from "../assets/shared/tablet/icon-hamburger.svg";
-import Logo from "../assets/shared/desktop/logo.svg";
-import ShoppingCart from "../assets/shared/desktop/icon-cart.svg";
 import styled from "styled-components/macro";
 import { useMediaQuery } from "react-responsive";
 import Navigation from "./Navigation";
@@ -71,11 +68,11 @@ const Header = () => {
       <HeaderContainer>
         {isLaptop ? (
           <ImgContainer>
-            <img src={Logo} alt="logo" />
+            <img src={"../assets/shared/desktop/logo.svg"} alt="logo" />
             <Navigation />
             <HeaderImg
               cart={"true"}
-              src={ShoppingCart}
+              src={"../assets/shared/desktop/icon-cart.svg"}
               alt="shopping-cart"
               onClick={showCartModal}
             />
@@ -85,14 +82,14 @@ const Header = () => {
             <HeaderImg
               menu={"true"}
               style={{ height: "60%" }}
-              src={Hamburger}
+              src={"../assets/shared/tablet/icon-hamburger.svg"}
               alt="menu"
               onClick={showMenuModal}
             />
-            <img src={Logo} alt="logo" />
+            <img src={"../assets/shared/desktop/logo.svg"} alt="logo" />
             <HeaderImg
               cart={"true"}
-              src={ShoppingCart}
+              src={"../assets/shared/desktop/icon-cart.svg"}
               alt="shopping-cart"
               onClick={showCartModal}
             />

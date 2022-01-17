@@ -1,7 +1,3 @@
-import StoryImgMobile from "../assets/shared/mobile/image-best-gear.jpg";
-import StoryImgTablet from "../assets/shared/tablet/image-best-gear.jpg";
-import StoryImgDesktop from "../assets/shared/desktop/image-best-gear.jpg";
-
 import styled from "styled-components/macro";
 import { useMediaQuery } from "react-responsive";
 
@@ -113,10 +109,10 @@ const Story = () => {
       <StoryImage
         src={
           isDesktop
-            ? StoryImgDesktop
+            ? "../assets/shared/desktop/image-best-gear.jpg"
             : isTablet
-            ? StoryImgTablet
-            : StoryImgMobile
+            ? "../assets/shared/tablet/image-best-gear.jpg"
+            : "../assets/shared/mobile/image-best-gear.jpg"
         }
         alt=""
       />

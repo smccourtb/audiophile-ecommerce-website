@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import Caret from "../../assets/shared/desktop/icon-arrow-right.svg";
 import { StyledButton } from "../../styles/shared-styles";
 
 const CategoryContainer = styled.div`
@@ -50,7 +49,7 @@ const ShopButton = styled(StyledButton)`
   mix-blend-mode: normal;
   opacity: 0.5;
   @media (min-width: 1024px) {
-    padding-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   :hover {
@@ -68,7 +67,7 @@ const CategoryLink = ({ image, title, target }) => {
         Shop
         <img
           style={{ height: "10px", width: "5px" }}
-          src={Caret}
+          src={"../../assets/shared/desktop/icon-arrow-right.svg"}
           alt="shop-now-arrow"
           aria-hidden={true}
         />

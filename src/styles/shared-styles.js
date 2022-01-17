@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Button = styled.button`
   width: 160px;
-  height: 48px;
+  min-height: 48px;
   background-color: ${({ primary }) => (primary ? "#d87d4a" : "transparent")};
   color: ${({ primary }) => (primary ? "#ffffff" : "#000000")};
   font-size: 13px;

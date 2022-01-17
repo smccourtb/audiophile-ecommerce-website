@@ -1,18 +1,5 @@
 import styled from "styled-components/macro";
-import BgCircles from "../../assets/home/desktop/pattern-circles.svg";
-import ZX9SpeakerImgMobile from "../../assets/home/mobile/image-speaker-zx9.png";
-import ZX9SpeakerImgTablet from "../../assets/home/tablet/image-speaker-zx9.png";
-import ZX9SpeakerImgDesktop from "../../assets/home/desktop/image-speaker-zx9.png";
-
 import { Button } from "../../styles/shared-styles";
-import ZX7SpeakerImgMobile from "../../assets/home/mobile/image-speaker-zx7.jpg";
-import ZX7SpeakerImgTablet from "../../assets/home/tablet/image-speaker-zx7.jpg";
-import ZX7SpeakerImgDesktop from "../../assets/home/desktop/image-speaker-zx7.jpg";
-
-import YX1EarphonesImage from "../../assets/home/mobile/image-earphones-yx1.jpg";
-import YX1EarphonesTablet from "../../assets/home/tablet/image-earphones-yx1.jpg";
-
-import YX1EarphonesImgDesktop from "../../assets/home/desktop/image-earphones-yx1.jpg";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -26,7 +13,8 @@ const FeatureProductContainer = styled.div`
   display: flex;
   background-size: contain;
   padding: 55px 24px;
-  background: #d87d4a url(${BgCircles}) no-repeat;
+  background: #d87d4a url(${"../../assets/home/desktop/pattern-circles.svg"})
+    no-repeat;
   background-position-y: -120px;
   background-position-x: center;
   background-size: 550px;
@@ -99,14 +87,15 @@ const SecondaryProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 320px;
-  background: #f1f1f1 url(${ZX7SpeakerImgMobile});
+  background: #f1f1f1 url(${"../../assets/home/mobile/image-speaker-zx7.jpg"});
   background-size: cover;
   @media (min-width: 768px) {
-    background: #f1f1f1 url(${ZX7SpeakerImgTablet});
+    background: #f1f1f1 url(${"../../assets/home/tablet/image-speaker-zx7.jpg"});
     padding: 101px 423px 101px 62px;
   }
   @media (min-width: 1024px) {
-    background: #f1f1f1 url(${ZX7SpeakerImgDesktop});
+    background: #f1f1f1
+      url(${"../../assets/home/desktop/image-speaker-zx7.jpg"});
     padding-left: 92px;
   }
 `;
@@ -188,10 +177,10 @@ const FeaturedProducts = () => {
         <FeaturedImage
           src={
             isDesktop
-              ? ZX9SpeakerImgDesktop
+              ? "../../assets/home/desktop/image-speaker-zx9.png"
               : isTablet
-              ? ZX9SpeakerImgTablet
-              : ZX9SpeakerImgMobile
+              ? "../../assets/home/tablet/image-speaker-zx9.png"
+              : "../../assets/home/mobile/image-speaker-zx9.png"
           }
           alt=""
         />
@@ -231,7 +220,9 @@ const FeaturedProducts = () => {
       </SecondaryProductContainer>
       {isDesktop ? (
         <div style={{ display: "flex", gap: "30px" }}>
-          <ProductImage src={YX1EarphonesImgDesktop} />
+          <ProductImage
+            src={"../../assets/home/desktop/image-earphones-yx1.jpg"}
+          />
           <ThirdProductContainer>
             <SecondaryTitle>YX1 Earphones</SecondaryTitle>
             <Button>See Product</Button>
@@ -241,7 +232,9 @@ const FeaturedProducts = () => {
         <>
           {isTablet ? (
             <div style={{ display: "flex", gap: "11px" }}>
-              <ProductImage src={YX1EarphonesTablet} />
+              <ProductImage
+                src={"../../assets/home/tablet/image-earphones-yx1.jpg"}
+              />
               <ThirdProductContainer>
                 <SecondaryTitle>YX1 Earphones</SecondaryTitle>
                 <Button>See Product</Button>
@@ -249,7 +242,9 @@ const FeaturedProducts = () => {
             </div>
           ) : (
             <>
-              <ProductImage src={YX1EarphonesImage} />
+              <ProductImage
+                src={"../../assets/home/mobile/image-earphones-yx1.jpg"}
+              />
               <ThirdProductContainer>
                 <SecondaryTitle>YX1 Earphones</SecondaryTitle>
                 <Button>See Product</Button>
