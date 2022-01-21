@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 const FooterContainer = styled.footer`
   background: linear-gradient(#d87d4a, #d87d4a) top / 104px 4px no-repeat,
-    #000000;
+    #000000; // orange bar at the top of the footer
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
   padding: 0 24px 38px;
 
   @media (min-width: 768px) {
-    background-position-x: 39px;
+    background-position-x: 39px; //moves the bar to match the padding
     padding: 0 40px 46px 39px;
     align-items: flex-start;
     gap: 32px;
@@ -36,7 +36,6 @@ const DescriptionText = styled.p`
   color: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.5;
-
   @media (min-width: 768px) {
     text-align: left;
   }

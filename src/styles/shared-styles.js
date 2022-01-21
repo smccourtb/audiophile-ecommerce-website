@@ -54,25 +54,6 @@ export const StyledButton = styled(Link)`
   }
 `;
 
-export const NavBar = styled.nav`
-  display: flex;
-  gap: 34px;
-`;
-
-export const FooterNav = styled(NavBar)`
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 34px;
-  }
-  @media (min-width: 1024px) {
-    padding-top: 75px;
-  }
-`;
-
 export const StyledLink = styled(Link)`
   line-height: 25px;
   text-decoration: none;

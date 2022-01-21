@@ -1,4 +1,23 @@
-import { FooterNav, NavBar, StyledLink } from "../styles/shared-styles";
+import { StyledLink } from "../styles/shared-styles";
+import styled from "styled-components/macro";
+
+export const NavBar = styled.nav`
+  display: flex;
+  gap: 34px;
+`;
+
+const FooterNav = styled(NavBar)`
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 34px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 75px;
+  }
+`;
 
 const Navigation = ({ footer }) => {
   return (
