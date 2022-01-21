@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Button = styled.button`
   width: 160px;
-  height: 48px;
+  min-height: 48px;
   background-color: ${({ primary }) => (primary ? "#d87d4a" : "transparent")};
   color: ${({ primary }) => (primary ? "#ffffff" : "#000000")};
   font-size: 13px;
@@ -51,25 +51,6 @@ export const StyledButton = styled(Link)`
   :link,
   :active {
     text-decoration: none;
-  }
-`;
-
-export const NavBar = styled.nav`
-  display: flex;
-  gap: 34px;
-`;
-
-export const FooterNav = styled(NavBar)`
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 34px;
-  }
-  @media (min-width: 1024px) {
-    padding-top: 75px;
   }
 `;
 

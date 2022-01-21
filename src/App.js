@@ -1,7 +1,7 @@
 import { GlobalStyle } from "./styles/global-styles";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 
-import Header from "./components/Header";
+import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 // main pages of content
 import Home from "./pages/Home";

@@ -1,14 +1,10 @@
 import styled from "styled-components/macro";
-import Logo from "../assets/shared/desktop/logo.svg";
-import FacebookIcon from "../assets/shared/desktop/icon-facebook.svg";
-import InstagramIcon from "../assets/shared/desktop/icon-instagram.svg";
-import TwitterIcon from "../assets/shared/desktop/icon-twitter.svg";
 import Navigation from "./Navigation";
 import { useMediaQuery } from "react-responsive";
 
 const FooterContainer = styled.footer`
   background: linear-gradient(#d87d4a, #d87d4a) top / 104px 4px no-repeat,
-    #000000;
+    #000000; // orange bar at the top of the footer
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +12,7 @@ const FooterContainer = styled.footer`
   padding: 0 24px 38px;
 
   @media (min-width: 768px) {
-    background-position-x: 39px;
+    background-position-x: 39px; //moves the bar to match the padding
     padding: 0 40px 46px 39px;
     align-items: flex-start;
     gap: 32px;
@@ -40,7 +36,6 @@ const DescriptionText = styled.p`
   color: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.5;
-
   @media (min-width: 768px) {
     text-align: left;
   }
@@ -83,7 +78,7 @@ const Footer = () => {
       {/*Mobile Layout*/}
       {isMobile && (
         <>
-          <LogoContainer src={Logo} alt="logo" />
+          <LogoContainer src={"../assets/shared/desktop/logo.svg"} alt="logo" />
           <Navigation footer />
           <DescriptionText>
             Audiophile is an all in one stop to fulfill your audio needs. We're
@@ -95,9 +90,19 @@ const Footer = () => {
             Copyright 2021. All Rights Reserved
           </DescriptionText>
           <SocialMediaGroup>
-            <SocialImage src={FacebookIcon} alt={"facebook"} />
-            <SocialImage small src={TwitterIcon} alt={"twitter"} />
-            <SocialImage src={InstagramIcon} alt={"instagram"} />
+            <SocialImage
+              src={"../assets/shared/desktop/icon-facebook.svg"}
+              alt={"facebook"}
+            />
+            <SocialImage
+              small
+              src={"../assets/shared/desktop/icon-twitter.svg"}
+              alt={"twitter"}
+            />
+            <SocialImage
+              src={"../assets/shared/desktop/icon-instagram.svg"}
+              alt={"instagram"}
+            />
           </SocialMediaGroup>
         </>
       )}
@@ -106,7 +111,7 @@ const Footer = () => {
       {isTablet && (
         <>
           {" "}
-          <LogoContainer src={Logo} alt="logo" />
+          <LogoContainer src={"../assets/shared/desktop/logo.svg"} alt="logo" />
           <Navigation footer />
           <DescriptionText>
             Audiophile is an all in one stop to fulfill your audio needs. We're
@@ -126,9 +131,19 @@ const Footer = () => {
               Copyright 2021. All Rights Reserved
             </DescriptionText>
             <SocialMediaGroup>
-              <SocialImage src={FacebookIcon} alt={"facebook"} />
-              <SocialImage small src={TwitterIcon} alt={"twitter"} />
-              <SocialImage src={InstagramIcon} alt={"instagram"} />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-facebook.svg"}
+                alt={"facebook"}
+              />
+              <SocialImage
+                small
+                src={"../assets/shared/desktop/icon-twitter.svg"}
+                alt={"twitter"}
+              />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-instagram.svg"}
+                alt={"instagram"}
+              />
             </SocialMediaGroup>
           </div>
         </>
@@ -145,7 +160,10 @@ const Footer = () => {
               alignItems: "flex-start",
             }}
           >
-            <LogoContainer src={Logo} alt="logo" />
+            <LogoContainer
+              src={"../assets/shared/desktop/logo.svg"}
+              alt="logo"
+            />
             <DescriptionText>
               Audiophile is an all in one stop to fulfill your audio needs.
               We're a small team of music lovers and sound specialists who are
@@ -166,9 +184,19 @@ const Footer = () => {
           >
             <Navigation footer />
             <SocialMediaGroup>
-              <SocialImage src={FacebookIcon} alt={"facebook"} />
-              <SocialImage small src={TwitterIcon} alt={"twitter"} />
-              <SocialImage src={InstagramIcon} alt={"instagram"} />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-facebook.svg"}
+                alt={"facebook"}
+              />
+              <SocialImage
+                small
+                src={"../assets/shared/desktop/icon-twitter.svg"}
+                alt={"twitter"}
+              />
+              <SocialImage
+                src={"../assets/shared/desktop/icon-instagram.svg"}
+                alt={"instagram"}
+              />
             </SocialMediaGroup>
           </div>
         </>

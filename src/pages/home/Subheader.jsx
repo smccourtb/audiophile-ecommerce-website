@@ -1,12 +1,9 @@
-import MobileHero from "../../assets/home/mobile/image-header.jpg";
-import TabletHero from "../../assets/home/tablet/image-header.jpg";
-import DesktopHero from "../../assets/home/desktop/image-hero.jpg";
 import styled from "styled-components/macro";
 import ProductButton from "../../components/ProductButton";
 
 const SubheaderContainer = styled.section`
   padding: 110px 24px 112px 23px;
-  background: url(${MobileHero}) no-repeat;
+  background: url(${"../../assets/home/mobile/image-header.jpg"}) no-repeat;
   background-position-y: -85px;
   background-size: cover;
   height: 100%;
@@ -14,19 +11,22 @@ const SubheaderContainer = styled.section`
   background-blend-mode: multiply;
 
   @media (min-width: 768px) {
-    background: url(${TabletHero}) no-repeat;
+    background: url(${"../../assets/home/tablet/image-header.jpg"}) no-repeat;
     padding: 126px 195px 167px 194px;
-    background-size: cover;
     background-position-y: -85px;
+    background-size: cover;
+
     background-color: rgb(110, 110, 110);
     background-blend-mode: multiply;
   }
 
   @media (min-width: 1024px) {
     padding: 128px 877px 158px 165px;
-    background: url(${DesktopHero}) no-repeat center bottom;
-    background-size: cover;
+    background: url(${"../../assets/home/desktop/image-hero.jpg"}) no-repeat
+      center bottom;
     background-color: rgb(110, 110, 110);
+    background-size: cover;
+
     background-blend-mode: multiply;
   }
 `;
@@ -50,10 +50,8 @@ const SubheadingTitle = styled.h1`
   letter-spacing: 10px;
   text-transform: uppercase;
   color: #ffffff;
-  @media (min-width: 768px) {
-    mix-blend-mode: normal;
-    opacity: 0.5;
-  }
+  mix-blend-mode: normal;
+  opacity: 0.5;
 `;
 
 const ProductLabel = styled.h2`
